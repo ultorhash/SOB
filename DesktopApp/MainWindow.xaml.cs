@@ -23,6 +23,23 @@ namespace DesktopApp
         public MainWindow()
         {
             InitializeComponent();
+            EmployeeLoginPanel();
+        }
+
+        public void EmployeeLoginPanel()
+        {
+            Label appNameLabel = new Label
+            {
+                Content = "Zaloguj się do systemu",
+                Background = Brushes.Black,
+                Foreground = Brushes.White,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                VerticalContentAlignment = VerticalAlignment.Center
+            };
+
+            mainWindow.Children.Add(appNameLabel);
+            Grid.SetColumn(appNameLabel, 2);
+            Grid.SetRow(appNameLabel, 3);
         }
     }
 }

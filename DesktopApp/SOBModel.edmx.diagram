@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e488fca3b1154e99b98b6d254594276a" Name="Diagram1">
+        <EntityTypeShape EntityType="SystemObsługiBankuDBModel.Account" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemObsługiBankuDBModel.Branch" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemObsługiBankuDBModel.Customer" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemObsługiBankuDBModel.Employee" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemObsługiBankuDBModel.Loan" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemObsługiBankuDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="SystemObsługiBankuDBModel.FK_Account_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemObsługiBankuDBModel.FK_Account_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemObsługiBankuDBModel.FK_Employee_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="SystemObsługiBankuDBModel.FK_Loan_Customer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -13,3 +13,9 @@ C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp.cs
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileInputs.cache
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp.exe
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp.pdb
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\Debug\EntityFramework.dll
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\Debug\EntityFramework.xml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp_Content.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete

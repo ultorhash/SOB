@@ -82,6 +82,7 @@
     <Compile Include="Loan.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="OperationButton.cs" />
     <Compile Include="SOBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +101,7 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UIButton.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

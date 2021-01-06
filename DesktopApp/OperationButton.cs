@@ -10,11 +10,11 @@ namespace DesktopApp
         public OperationButton(string content)
         {
             Cursor = Cursors.Hand;
-            Background = Brushes.CornflowerBlue;
+            Background = Brushes.DodgerBlue;
             Foreground = Brushes.Black;
-            Height = 60;
+            Height = 50;
             Width = 120;
-            FontSize = 10;
+            FontSize = 11;
             FontWeight = FontWeights.Bold;
             HorizontalAlignment = HorizontalAlignment.Center;
             Content = new TextBlock()

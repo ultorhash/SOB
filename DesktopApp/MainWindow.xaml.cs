@@ -132,44 +132,43 @@ namespace DesktopApp
 
         public void LoadMenuPanel(Employee employee)
         {
-            Label lblEmployee = new Label
+            UILabel lblDateTime = new UILabel();
+            UILabel lblEmployee = new UILabel
             {
                 Content = $"Zalogowany: {employee.FirstName} {employee.LastName}",
-                Background = Brushes.DeepSkyBlue,
-                Foreground = Brushes.White,
-                HorizontalContentAlignment = HorizontalAlignment.Center,
-                VerticalContentAlignment = VerticalAlignment.Center,
-                FontSize = 12,
             };
 
-            Label lblSessionTime = new Label
+            UILabel lblSessionTime = new UILabel
             {
                 Content = "Timer",
-                Background = Brushes.DeepSkyBlue,
-                Foreground = Brushes.White,
-                HorizontalContentAlignment = HorizontalAlignment.Center,
-                VerticalContentAlignment = VerticalAlignment.Center,
-                FontSize = 12,
             };
 
             OperationButton btnCustomerService = new OperationButton("Obsługa klienta");
+            OperationButton btnCustomerAdd = new OperationButton("Dodawanie klienta");
             OperationButton btnCustomerDelete = new OperationButton("Usuwanie klienta");
             OperationButton btnBranchInfo = new OperationButton("Informacje o oddziale");
             OperationButton btnEmployeeInfo = new OperationButton("Twoje dane");
+            OperationButton btnEmployeeSettings = new OperationButton("Ustawienia");
 
             UIButton btnLogout = new UIButton
             {
                 Content = "Wyloguj",
-                Margin = new Thickness(0, 0, 10, 0),
+                Margin = new Thickness(0, 0, -20, 0),
             };
 
+            mainWindow.Children.Add(lblDateTime);
             mainWindow.Children.Add(lblEmployee);
             mainWindow.Children.Add(lblSessionTime);
             mainWindow.Children.Add(btnCustomerService);
+            mainWindow.Children.Add(btnCustomerAdd);
             mainWindow.Children.Add(btnCustomerDelete);
             mainWindow.Children.Add(btnBranchInfo);
             mainWindow.Children.Add(btnEmployeeInfo);
+            mainWindow.Children.Add(btnEmployeeSettings);
             mainWindow.Children.Add(btnLogout);
+
+            Grid.SetColumn(lblEmployee, 0);
+            Grid.SetRow(lblEmployee, 0);
 
             Grid.SetColumn(lblEmployee, 2);
             Grid.SetRow(lblEmployee, 0);
@@ -180,19 +179,163 @@ namespace DesktopApp
             Grid.SetColumn(btnCustomerService, 0);
             Grid.SetRow(btnCustomerService, 1);
 
+            Grid.SetColumn(btnCustomerAdd, 0);
+            Grid.SetRow(btnCustomerAdd, 2);
+
             Grid.SetColumn(btnCustomerDelete, 0);
-            Grid.SetRow(btnCustomerDelete, 2);
+            Grid.SetRow(btnCustomerDelete, 3);
 
             Grid.SetColumn(btnBranchInfo, 0);
-            Grid.SetRow(btnBranchInfo, 3);
+            Grid.SetRow(btnBranchInfo, 4);
 
             Grid.SetColumn(btnEmployeeInfo, 0);
-            Grid.SetRow(btnEmployeeInfo, 4);
+            Grid.SetRow(btnEmployeeInfo, 5);
+
+            Grid.SetColumn(btnEmployeeSettings, 0);
+            Grid.SetRow(btnEmployeeSettings, 6);
 
             Grid.SetColumn(btnLogout, 4);
             Grid.SetRow(btnLogout, 6);
 
+            btnCustomerDelete.Click += DeleteCustomer;
             btnLogout.Click += Logout;
+
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Tick += Ticker;
+            dt.Start();
+
+            void Ticker(object sender, EventArgs e)
+            {
+                lblDateTime.Content = "Dzień: " + DateTime.Now.ToString("dd/MM/yyyy") +
+                                      "\nGodzina: " + DateTime.Now.ToString("HH:mm");
+            }
+        }
+
+        public void DeleteCustomer(object sender, EventArgs e)
+        {
+            string numbers = "";
+
+            Window deleteCustomerWindow = new Window()
+            {
+                Title = "Usuwanie klienta",
+                Width = 400,
+                Height = 240,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                Background = Brushes.MidnightBlue,
+                ResizeMode = ResizeMode.NoResize,
+            };
+
+            StackPanel sp = new StackPanel();
+            DockPanel dpNumbers = new DockPanel
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
+
+            DockPanel dpButtons = new DockPanel
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
+
+            Label lblOperationInfo = new Label
+            {
+                FontSize = 10,
+                Background = Brushes.MidnightBlue,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
+
+            Label lblCustomerDelete = new Label
+            {
+                Content = "Podaj numer PESEL klienta",
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                VerticalContentAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(10),
+                FontSize = 16,
+                FontWeight = FontWeights.Bold,
+                Foreground = Brushes.White,
+            };
+
+            UIButton btnExit = new UIButton
+            {
+                Content = "Zamknij",
+                Margin = new Thickness(10),
+            };
+
+            UIButton btnConfirm = new UIButton
+            {
+                Content = "Zatwierdź",
+                Margin = new Thickness(10),
+            };
+
+            dpButtons.Children.Add(btnExit);
+            dpButtons.Children.Add(btnConfirm);
+
+            sp.Children.Add(lblCustomerDelete);
+            sp.Children.Add(dpNumbers);
+            sp.Children.Add(dpButtons);
+            sp.Children.Add(lblOperationInfo);
+
+            for (int i = 11; i > 0; i--)
+            {
+                TextBox tb = new TextBox
+                {
+                    MaxLength = 1,
+                    Width = 20,
+                    Height = 40,
+                    FontSize = 16,
+                    HorizontalContentAlignment = HorizontalAlignment.Center,
+                    VerticalContentAlignment = VerticalAlignment.Center,
+                    FontWeight = FontWeights.Bold,
+                    Margin = new Thickness(2),
+                };
+
+                tb.GotFocus += ChangeColorNumber;
+                tb.LostFocus += ChangeColorNumber;
+                dpNumbers.Children.Add(tb);
+            }
+
+            btnExit.Click += ExitWindow;
+            btnConfirm.Click += DeleteCustomerAction;
+
+            void ChangeColorNumber(object o, EventArgs ev)
+            {
+                TextBox tb = (TextBox)o;
+                tb.Background = tb.IsFocused ? tb.Background = Brushes.LightSkyBlue : tb.Background = Brushes.White;
+                if (tb.Text.Length != 0)
+                {
+                    tb.IsEnabled = false;
+                }
+            }
+
+            void ExitWindow(object o, EventArgs ev) => deleteCustomerWindow.Close();
+            void DeleteCustomerAction(object o, EventArgs ev)
+            {
+                foreach (TextBox tb in ControlFinder.FindVisualChildren<TextBox>(deleteCustomerWindow))
+                {
+                    numbers += tb.Text;
+                    tb.Text = "";
+                    tb.IsEnabled = true;
+                }
+
+                if (numbers.Length != 11)
+                {
+                    lblOperationInfo.Foreground = Brushes.Red;
+                    lblOperationInfo.Content = "Brak klienta o danym peselu";
+                }
+                else
+                {
+                    lblOperationInfo.Foreground = Brushes.Lime;
+                    lblOperationInfo.Content = "Opracja zakończona pomyślnie";
+                }
+
+                numbers = "";
+            }
+
+            deleteCustomerWindow.Content = sp;
+            deleteCustomerWindow.Show();
         }
 
         public void Logout(object sender, EventArgs e)

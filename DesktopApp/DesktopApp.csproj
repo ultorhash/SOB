@@ -73,6 +73,7 @@
     <Compile Include="Branch.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ControlFinder.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -102,6 +103,7 @@
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UIButton.cs" />
+    <Compile Include="UILabel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

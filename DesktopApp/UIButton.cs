@@ -12,16 +12,18 @@ namespace DesktopApp
 {
     public class UIButton : Button
     {
-        public UIButton()
+        public UIButton(string content)
         {
+            Content = content;
             Cursor = Cursors.Hand;
             Background = Brushes.Gray;
             Foreground = Brushes.White;
             Height = 40;
             Width = 80;
-            FontSize = 16;
+            FontSize = 14;
             FontWeight = FontWeights.Bold;
             HorizontalAlignment = HorizontalAlignment.Center;
+            Margin = new Thickness(10);
         }
     }
 }

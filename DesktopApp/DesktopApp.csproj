@@ -103,6 +103,7 @@
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UIButton.cs" />
+    <Compile Include="UIAddCustomerDockPanel.cs" />
     <Compile Include="UILabel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

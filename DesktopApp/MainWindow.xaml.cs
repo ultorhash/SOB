@@ -63,17 +63,8 @@ namespace DesktopApp
                 Padding = new Thickness(6),
             };
 
-            UIButton btnExit = new UIButton
-            {
-                Content = "Wyjście",
-                Margin = new Thickness(20, 20, 10, 20),
-            };
-
-            UIButton btnLogin = new UIButton
-            {
-                Content = "Zaloguj",
-                Margin = new Thickness(10, 20, 20, 20),
-            };
+            UIButton btnExit = new UIButton("Wyjście");
+            UIButton btnLogin = new UIButton("Zaloguj");
 
             mainWindow.Children.Add(lblTitleApp);
             mainWindow.Children.Add(spLoginBox);
@@ -150,11 +141,7 @@ namespace DesktopApp
             OperationButton btnEmployeeInfo = new OperationButton("Twoje dane");
             OperationButton btnEmployeeSettings = new OperationButton("Ustawienia");
 
-            UIButton btnLogout = new UIButton
-            {
-                Content = "Wyloguj",
-                Margin = new Thickness(0, 0, -20, 0),
-            };
+            UIButton btnLogout = new UIButton("Wyloguj");
 
             mainWindow.Children.Add(lblDateTime);
             mainWindow.Children.Add(lblEmployee);
@@ -199,6 +186,7 @@ namespace DesktopApp
 
             btnCustomerDelete.Click += DeleteCustomer;
             btnLogout.Click += Logout;
+            btnCustomerAdd.Click += AddCustomer;
 
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromSeconds(1);
@@ -210,6 +198,64 @@ namespace DesktopApp
                 lblDateTime.Content = "Dzień: " + DateTime.Now.ToString("dd/MM/yyyy") +
                                       "\nGodzina: " + DateTime.Now.ToString("HH:mm");
             }
+        }
+
+        public void AddCustomer(object sender, EventArgs e)
+        {
+            StackPanel sp = new StackPanel
+            {
+                Width = 400,
+                Background = Brushes.DeepSkyBlue,
+                Margin = new Thickness(0, -120, 0, -120),
+            };
+
+            UIAddCustomerDockPanel dpCustomerID = new UIAddCustomerDockPanel("Numer PESEL");
+            UIAddCustomerDockPanel dpCustomerFN = new UIAddCustomerDockPanel("Imię");
+            UIAddCustomerDockPanel dpCustomerLN = new UIAddCustomerDockPanel("Nazwisko");
+            UIAddCustomerDockPanel dpCustomerBD = new UIAddCustomerDockPanel("Data urodzenia", new DatePicker());
+            UIAddCustomerDockPanel dpCustomerGender = new UIAddCustomerDockPanel("Płeć");
+            UIAddCustomerDockPanel dpCustomerAdress = new UIAddCustomerDockPanel("Ulica");
+            UIAddCustomerDockPanel dpCustomerCity = new UIAddCustomerDockPanel("Miasto");
+            DockPanel dpButtons = new DockPanel
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
+
+            UIButton btnCancel = new UIButton("Anuluj");
+            UIButton btnConfirm = new UIButton("Zatwierdź");
+
+            btnCancel.Click += CloseCustomerAdd;
+            btnConfirm.Click += ConfirmCustomerAdd;
+
+            dpButtons.Children.Add(btnCancel);
+            dpButtons.Children.Add(btnConfirm);
+
+            mainWindow.Children.Add(sp);
+            sp.Children.Add(dpCustomerID);
+            sp.Children.Add(dpCustomerFN);
+            sp.Children.Add(dpCustomerLN);
+            sp.Children.Add(dpCustomerBD);
+            sp.Children.Add(dpCustomerGender);
+            sp.Children.Add(dpCustomerAdress);
+            sp.Children.Add(dpCustomerCity);
+            sp.Children.Add(dpButtons);
+
+            Grid.SetColumn(sp, 2);
+            Grid.SetRow(sp, 3);
+
+            void CloseCustomerAdd(object o, EventArgs ev) => mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
+            void ConfirmCustomerAdd(object o, EventArgs ev)
+            {
+                MessageBox.Show("Dodawanie SQL");
+                //AddCustomer(dpCustomerID.Children.IndexOf(TextBox.Con));
+                mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
+            }
+        }
+
+        public void AddCustomer()
+        {
+
         }
 
         public void DeleteCustomer(object sender, EventArgs e)
@@ -258,17 +304,8 @@ namespace DesktopApp
                 Foreground = Brushes.White,
             };
 
-            UIButton btnExit = new UIButton
-            {
-                Content = "Zamknij",
-                Margin = new Thickness(10),
-            };
-
-            UIButton btnConfirm = new UIButton
-            {
-                Content = "Zatwierdź",
-                Margin = new Thickness(10),
-            };
+            UIButton btnExit = new UIButton("Zamknij");
+            UIButton btnConfirm = new UIButton("Zatwierdź");
 
             dpButtons.Children.Add(btnExit);
             dpButtons.Children.Add(btnConfirm);

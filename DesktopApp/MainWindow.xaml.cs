@@ -209,13 +209,13 @@ namespace DesktopApp
                 Margin = new Thickness(0, -120, 0, -120),
             };
 
-            UIAddCustomerDockPanel dpCustomerID = new UIAddCustomerDockPanel("Numer PESEL");
-            UIAddCustomerDockPanel dpCustomerFN = new UIAddCustomerDockPanel("Imię");
-            UIAddCustomerDockPanel dpCustomerLN = new UIAddCustomerDockPanel("Nazwisko");
+            UIAddCustomerDockPanel dpCustomerID = new UIAddCustomerDockPanel("Numer PESEL", 11);
+            UIAddCustomerDockPanel dpCustomerFN = new UIAddCustomerDockPanel("Imię", 30);
+            UIAddCustomerDockPanel dpCustomerLN = new UIAddCustomerDockPanel("Nazwisko", 30);
             UIAddCustomerDockPanel dpCustomerBD = new UIAddCustomerDockPanel("Data urodzenia", new DatePicker());
-            UIAddCustomerDockPanel dpCustomerGender = new UIAddCustomerDockPanel("Płeć");
-            UIAddCustomerDockPanel dpCustomerAdress = new UIAddCustomerDockPanel("Ulica");
-            UIAddCustomerDockPanel dpCustomerCity = new UIAddCustomerDockPanel("Miasto");
+            UIAddCustomerDockPanel dpCustomerGender = new UIAddCustomerDockPanel("Płeć ( M / K )", 1);
+            UIAddCustomerDockPanel dpCustomerAdress = new UIAddCustomerDockPanel("Ulica", 50);
+            UIAddCustomerDockPanel dpCustomerCity = new UIAddCustomerDockPanel("Miasto", 30);
             DockPanel dpButtons = new DockPanel
             {
                 VerticalAlignment = VerticalAlignment.Center,
@@ -247,15 +247,69 @@ namespace DesktopApp
             void CloseCustomerAdd(object o, EventArgs ev) => mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
             void ConfirmCustomerAdd(object o, EventArgs ev)
             {
-                MessageBox.Show("Dodawanie SQL");
-                //AddCustomer(dpCustomerID.Children.IndexOf(TextBox.Con));
+                int element = 1;
+                AddCustomer
+                (
+                    (DatePicker)dpCustomerBD.Children[element],
+                    (TextBox)dpCustomerID.Children[element],
+                    (TextBox)dpCustomerFN.Children[element],
+                    (TextBox)dpCustomerLN.Children[element],
+                    (TextBox)dpCustomerGender.Children[element],
+                    (TextBox)dpCustomerAdress.Children[element],
+                    (TextBox)dpCustomerCity.Children[element]
+                );
+
                 mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
             }
         }
 
-        public void AddCustomer()
+        public void AddCustomer(DatePicker bd, params TextBox[] tbxs)
         {
+            bool isFieldEmpty = false;
 
+            foreach (var item in tbxs)
+            {
+                if (item.Text == "")
+                {
+                    MessageBoxResult confirm = MessageBox.Show
+                    (
+                        "Wprowadzono niekompletne dane!",
+                        "Informacja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+
+                    isFieldEmpty = true;
+                    break;
+                }            
+            }
+
+            if (!isFieldEmpty)
+            {
+                string birthDate = bd.SelectedDate.Value.Date.ToString("yyyy-MM-dd");
+                string id = tbxs[0].Text;
+                string firstName = tbxs[1].Text;
+                string lastName = tbxs[2].Text;
+                string gender = tbxs[3].Text;
+                string adress = tbxs[4].Text;
+                string city = tbxs[5].Text;
+
+                using (var context = new SystemObsługiBankuDBEntities())
+                {
+                    context.Customer.Add(new Customer
+                    {
+                        ID = id,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        BirthDate = Convert.ToDateTime(birthDate),
+                        Gender = gender,
+                        Adress = adress,
+                        City = city,
+                    });
+
+                    context.SaveChanges();
+                }
+            }         
         }
 
         public void DeleteCustomer(object sender, EventArgs e)
@@ -364,8 +418,23 @@ namespace DesktopApp
                 }
                 else
                 {
-                    lblOperationInfo.Foreground = Brushes.Lime;
-                    lblOperationInfo.Content = "Opracja zakończona pomyślnie";
+                    using (var context = new SystemObsługiBankuDBEntities())
+                    {
+                        Customer customer = null;
+                        try
+                        {
+                            customer = context.Customer.Where(x => x.ID == numbers).First();
+                            context.Customer.Remove(customer);
+                            lblOperationInfo.Foreground = Brushes.Lime;
+                            lblOperationInfo.Content = "Opracja zakończona pomyślnie";
+                            context.SaveChanges();
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            lblOperationInfo.Foreground = Brushes.Red;
+                            lblOperationInfo.Content = "Brak klienta o danym peselu";
+                        }
+                    }
                 }
 
                 numbers = "";

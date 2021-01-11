@@ -7,7 +7,7 @@ namespace DesktopApp
 {
     public class UIAddCustomerDockPanel : DockPanel
     {
-        public UIAddCustomerDockPanel(string lblContent)
+        public UIAddCustomerDockPanel(string lblContent, int inputLength)
         {
             Children.Add(new Label
             {
@@ -22,6 +22,7 @@ namespace DesktopApp
 
             Children.Add(new TextBox
             {
+                MaxLength = inputLength,
                 Padding = new Thickness(2),
                 Background = Brushes.LightGray,
                 FontSize = 16,
@@ -31,7 +32,7 @@ namespace DesktopApp
             });
         }
 
-        public UIAddCustomerDockPanel(string lblContent, DatePicker dp) : this(lblContent)
+        public UIAddCustomerDockPanel(string lblContent, DatePicker dp, int inputLength = 0) : this(lblContent, inputLength)
         {
             Children.RemoveAt(Children.Count - 1);
             Children.Add(new DatePicker

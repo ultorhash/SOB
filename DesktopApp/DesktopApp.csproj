@@ -70,6 +70,7 @@
     <Compile Include="Account.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddCustomerPanel.cs" />
     <Compile Include="Branch.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -80,9 +81,11 @@
     <Compile Include="Employee.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeInfoWindow.cs" />
     <Compile Include="Loan.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MenuPanel.cs" />
     <Compile Include="OperationButton.cs" />
     <Compile Include="SOBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -104,7 +107,10 @@
     </Compile>
     <Compile Include="UIButton.cs" />
     <Compile Include="UIAddCustomerDockPanel.cs" />
+    <Compile Include="UIButtonsDockPanel.cs" />
+    <Compile Include="UIEmployeeInfoDockPanel.cs" />
     <Compile Include="UILabel.cs" />
+    <Compile Include="EmployeeLoginPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

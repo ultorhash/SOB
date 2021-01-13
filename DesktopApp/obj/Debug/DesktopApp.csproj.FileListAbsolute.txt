@@ -19,3 +19,9 @@ C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\Debug\EntityFramewo
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp_Content.g.cs
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeBranchWindow.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeBranchWindow.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeInfoWindow.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeInfoWindow.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeSettingsWindow.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeSettingsWindow.baml

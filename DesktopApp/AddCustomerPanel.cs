@@ -32,7 +32,7 @@ namespace DesktopApp
             UIAddCustomerDockPanel dpCustomerCity = new UIAddCustomerDockPanel("Miasto", 30);
             UIButtonsDockPanel dpButtons = new UIButtonsDockPanel(btnCancel, btnConfirm);
 
-            btnCancel.Click += DeleteCustomerAdd;
+            btnCancel.Click += DeletePanel;
             btnConfirm.Click += ConfirmCustomerAdd;
 
             mainWindow.Children.Add(sp);
@@ -48,7 +48,7 @@ namespace DesktopApp
             Grid.SetColumn(sp, 2);
             Grid.SetRow(sp, 3);
 
-            void DeleteCustomerAdd(object o, EventArgs ev) => mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
+            void DeletePanel(object o, EventArgs ev) => mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
             void ConfirmCustomerAdd(object o, EventArgs ev)
             {
                 int element = 1;
@@ -113,6 +113,14 @@ namespace DesktopApp
 
                     context.SaveChanges();
                 }
+
+                MessageBoxResult confirm = MessageBox.Show
+                (
+                    "Operacja zakończona pomyślnie.",
+                    "Wynik operacji",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information
+                );
             }
         }
     }

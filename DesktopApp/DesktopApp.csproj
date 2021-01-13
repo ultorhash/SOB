@@ -78,15 +78,25 @@
     <Compile Include="Customer.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DeleteCustomerPanel.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeInfoWindow.cs" />
+    <Compile Include="EmployeeBranchWindow.xaml.cs">
+      <DependentUpon>EmployeeBranchWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeInfoWindow.xaml.cs">
+      <DependentUpon>EmployeeInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeSettingsWindow.xaml.cs">
+      <DependentUpon>EmployeeSettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Loan.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MenuPanel.cs" />
     <Compile Include="OperationButton.cs" />
+    <Compile Include="ServiceCustomerPanel.cs" />
     <Compile Include="SOBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,9 +118,22 @@
     <Compile Include="UIButton.cs" />
     <Compile Include="UIAddCustomerDockPanel.cs" />
     <Compile Include="UIButtonsDockPanel.cs" />
-    <Compile Include="UIEmployeeInfoDockPanel.cs" />
+    <Compile Include="UIEmployeeDockPanel.cs" />
     <Compile Include="UILabel.cs" />
     <Compile Include="EmployeeLoginPanel.cs" />
+    <Compile Include="UINumberTextBox.cs" />
+    <Page Include="EmployeeBranchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeSettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -13,7 +13,10 @@ namespace DesktopApp
     {
         public void LoadMenuPanel(Employee employee)
         {
-            UILabel lblDateTime = new UILabel();
+            UILabel lblDateTime = new UILabel
+            {
+                Content = "Strefa klienta",
+            };
             UILabel lblEmployee = new UILabel
             {
                 Content = $"Zalogowany: {employee.FirstName} {employee.LastName}",
@@ -21,7 +24,7 @@ namespace DesktopApp
 
             UILabel lblSessionTime = new UILabel
             {
-                Content = "Timer",
+                Content = "Strefa pracownika",
             };
 
             OperationButton btnCustomerService = new OperationButton("Obsługa klienta");
@@ -74,20 +77,30 @@ namespace DesktopApp
             Grid.SetColumn(btnLogout, 4);
             Grid.SetRow(btnLogout, 6);
 
-            btnCustomerDelete.Click += DeleteCustomer;
-            btnLogout.Click += Logout;
+            btnCustomerService.Click += ServiceCustomerPanel;
             btnCustomerAdd.Click += AddCustomerPanel;
-            btnEmployeeInfo.Click += EmployeeInfoWindow;
+            btnCustomerDelete.Click += DeleteCustomerPanel;
+            btnBranchInfo.Click += OpenEmployeeBranchWindow;
+            btnEmployeeInfo.Click += OpenEmployeeInfoWindow;
+            btnEmployeeSettings.Click += OpenEmployeeSettingsWindow;
+            btnLogout.Click += Logout;
 
-            DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromSeconds(1);
-            dt.Tick += Ticker;
-            dt.Start();
-
-            void Ticker(object sender, EventArgs e)
+            void OpenEmployeeBranchWindow(object sender, EventArgs e)
             {
-                lblDateTime.Content = "Dzień: " + DateTime.Now.ToString("dd/MM/yyyy") +
-                                      "\nGodzina: " + DateTime.Now.ToString("HH:mm");
+                EmployeeBranchWindow employeeBranchWindow = new EmployeeBranchWindow(loggedEmployee);
+                employeeBranchWindow.Show();
+            }
+
+            void OpenEmployeeInfoWindow(object sender, EventArgs e)
+            {
+                EmployeeInfoWindow employeeInfoWindow = new EmployeeInfoWindow(loggedEmployee);
+                employeeInfoWindow.Show();
+            }
+
+            void OpenEmployeeSettingsWindow(object sender, EventArgs e)
+            {
+                EmployeeSettingsWindow employeeSettingsWindow = new EmployeeSettingsWindow();
+                employeeSettingsWindow.Show();
             }
         }
     }

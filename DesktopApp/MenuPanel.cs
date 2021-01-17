@@ -77,7 +77,7 @@ namespace DesktopApp
             Grid.SetColumn(btnLogout, 4);
             Grid.SetRow(btnLogout, 6);
 
-            btnCustomerService.Click += ServiceCustomerPanel;
+            btnCustomerService.Click += ServiceCustomerNumberPanel;
             btnCustomerAdd.Click += AddCustomerPanel;
             btnCustomerDelete.Click += DeleteCustomerPanel;
             btnBranchInfo.Click += OpenEmployeeBranchWindow;

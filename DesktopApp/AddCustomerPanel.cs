@@ -23,13 +23,13 @@ namespace DesktopApp
             UIButton btnCancel = new UIButton("Anuluj");
             UIButton btnConfirm = new UIButton("Zatwierdź");
 
-            UIAddCustomerDockPanel dpCustomerID = new UIAddCustomerDockPanel("Numer PESEL", 11);
-            UIAddCustomerDockPanel dpCustomerFN = new UIAddCustomerDockPanel("Imię", 30);
-            UIAddCustomerDockPanel dpCustomerLN = new UIAddCustomerDockPanel("Nazwisko", 30);
-            UIAddCustomerDockPanel dpCustomerBD = new UIAddCustomerDockPanel("Data urodzenia", new DatePicker());
-            UIAddCustomerDockPanel dpCustomerGender = new UIAddCustomerDockPanel("Płeć ( M / K )", 1);
-            UIAddCustomerDockPanel dpCustomerAdress = new UIAddCustomerDockPanel("Ulica", 50);
-            UIAddCustomerDockPanel dpCustomerCity = new UIAddCustomerDockPanel("Miasto", 30);
+            UICustomerDockPanel dpCustomerID = new UICustomerDockPanel("Numer PESEL", 11);
+            UICustomerDockPanel dpCustomerFN = new UICustomerDockPanel("Imię", 30);
+            UICustomerDockPanel dpCustomerLN = new UICustomerDockPanel("Nazwisko", 30);
+            UICustomerDockPanel dpCustomerBD = new UICustomerDockPanel("Data urodzenia", new DatePicker());
+            UICustomerDockPanel dpCustomerGender = new UICustomerDockPanel("Płeć ( M / K )", 1);
+            UICustomerDockPanel dpCustomerAdress = new UICustomerDockPanel("Ulica", 50);
+            UICustomerDockPanel dpCustomerCity = new UICustomerDockPanel("Miasto", 30);
             UIButtonsDockPanel dpButtons = new UIButtonsDockPanel(btnCancel, btnConfirm);
 
             btnCancel.Click += DeletePanel;
@@ -75,13 +75,7 @@ namespace DesktopApp
             {
                 if (item.Text == "")
                 {
-                    MessageBoxResult confirm = MessageBox.Show
-                    (
-                        "Wprowadzono niekompletne dane!",
-                        "Informacja",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Error
-                    );
+                    ShowError();
 
                     isFieldEmpty = true;
                     break;
@@ -122,6 +116,17 @@ namespace DesktopApp
                     MessageBoxImage.Information
                 );
             }
+        }
+
+        public void ShowError()
+        {
+            MessageBox.Show
+            (
+                "Wprowadzono niekompletne dane!",
+                "Informacja",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
         }
     }
 }

@@ -34,46 +34,20 @@ namespace DesktopApp
 
             UIButton btnBack = new UIButton("Powrót");
 
-            Button btnTheme1 = new Button
-            {
-                Width = 30, Height = 30,
-                Margin = new Thickness(5),
-                Background = Brushes.DarkGray,
-                Cursor = Cursors.Cross
-            };
-
-            Button btnTheme2 = new Button
-            {
-                Width = 30, Height = 30,
-                Margin = new Thickness(5),
-                Background = Brushes.DimGray, Cursor = Cursors.Cross
-            
-            };
-
-            Button btnTheme3 = new Button
-            {
-                Width = 30, Height = 30,
-                Margin = new Thickness(5),
-                Background = Brushes.SteelBlue,
-                Cursor = Cursors.Cross
-            };
-
-            Button btnTheme4 = new Button
-            {
-                Width = 30,
-                Height = 30,
-                Margin = new Thickness(5),
-                Background = Brushes.LemonChiffon,
-                Cursor = Cursors.Cross
-            };
+            UIThemeButton btnTheme1 = new UIThemeButton(Brushes.LemonChiffon);
+            UIThemeButton btnTheme2 = new UIThemeButton(Brushes.DarkGray);
+            UIThemeButton btnTheme3 = new UIThemeButton(Brushes.DimGray);    
+            UIThemeButton btnTheme4 = new UIThemeButton(Brushes.SteelBlue);
+            UIThemeButton btnTheme5 = new UIThemeButton(Brushes.DarkSlateGray);
 
             btnTheme1.Click += ChangeTheme;
             btnTheme2.Click += ChangeTheme;
             btnTheme3.Click += ChangeTheme;
             btnTheme4.Click += ChangeTheme;
+            btnTheme5.Click += ChangeTheme;
             btnBack.Click += DeleteWindow;
 
-            sp.Children.Add(new UIEmployeeDockPanel("Motyw", btnTheme1, btnTheme2, btnTheme3, btnTheme4));
+            sp.Children.Add(new UIEmployeeDockPanel("Motyw", btnTheme1, btnTheme2, btnTheme3, btnTheme4, btnTheme5));
             sp.Children.Add(new UIButtonsDockPanel(btnBack));
 
             employeeSettingsWindow.Children.Add(sp);

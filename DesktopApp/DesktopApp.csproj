@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -78,7 +81,11 @@
     <Compile Include="Customer.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerNewAccount.xaml.cs">
+      <DependentUpon>CustomerNewAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteCustomerPanel.cs" />
+    <Compile Include="DropDownButton.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -96,6 +103,7 @@
     </Compile>
     <Compile Include="MenuPanel.cs" />
     <Compile Include="OperationButton.cs" />
+    <Compile Include="ServiceCustomerNumberPanel.cs" />
     <Compile Include="ServiceCustomerPanel.cs" />
     <Compile Include="SOBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -116,12 +124,17 @@
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UIButton.cs" />
-    <Compile Include="UIAddCustomerDockPanel.cs" />
+    <Compile Include="UICustomerDockPanel.cs" />
     <Compile Include="UIButtonsDockPanel.cs" />
+    <Compile Include="UIThemeButton.cs" />
     <Compile Include="UIEmployeeDockPanel.cs" />
     <Compile Include="UILabel.cs" />
     <Compile Include="EmployeeLoginPanel.cs" />
     <Compile Include="UINumberTextBox.cs" />
+    <Page Include="CustomerNewAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmployeeBranchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +195,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="logo.ico" />
     <Content Include="SOBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SOBModel.edmx</DependentUpon>

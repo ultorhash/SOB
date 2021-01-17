@@ -25,3 +25,5 @@ C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeInfoW
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeInfoWindow.baml
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeSettingsWindow.g.cs
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\EmployeeSettingsWindow.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewAccount.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewAccount.baml

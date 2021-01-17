@@ -5,9 +5,9 @@ using System.Windows.Media;
 
 namespace DesktopApp
 {
-    public class UIAddCustomerDockPanel : DockPanel
+    public class UICustomerDockPanel : DockPanel
     {
-        public UIAddCustomerDockPanel(string lblContent, int inputLength)
+        public UICustomerDockPanel(string lblContent, int inputLength)
         {
             Children.Add(new Label
             {
@@ -32,7 +32,7 @@ namespace DesktopApp
             });
         }
 
-        public UIAddCustomerDockPanel(string lblContent, DatePicker dp, int inputLength = 0) : this(lblContent, inputLength)
+        public UICustomerDockPanel(string lblContent, DatePicker dp, int inputLength = 0) : this(lblContent, inputLength)
         {
             Children.RemoveAt(Children.Count - 1);
             Children.Add(new DatePicker

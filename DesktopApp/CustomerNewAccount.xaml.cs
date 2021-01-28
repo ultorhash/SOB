@@ -71,18 +71,25 @@ namespace DesktopApp
 
         public void CreateNewAccount(Customer customer, Employee loggedEmployee, TextBox accountName, TextBox accountMoney, params DatePicker[] dates)
         {
-            DateTime date1 = dates[0].SelectedDate.Value.Date;
-            DateTime date2 = dates[1].SelectedDate.Value.Date;
-            int result = DateTime.Compare(date1, date2);
+            bool isValidDate = true;
+            DateTime date1 = default;
+            DateTime date2 = default;
+
+            try
+            {
+                date1 = dates[0].SelectedDate.Value.Date;
+                date2 = dates[1].SelectedDate.Value.Date;
+            }
+            catch (InvalidOperationException) { isValidDate = false; }           
+            int resultDate = DateTime.Compare(date1, date2);
 
             if (accountName.Text == "" ||
                 accountMoney.Text == "" ||
-                dates[0].SelectedDate == null ||
-                dates[1].SelectedDate == null)
+                isValidDate == false)
             {
                 ShowError("Wprowadzono niekompletne dane!");
             }
-            else if (result >= 0) ShowError("Podana data zakończenia jest dniem przeszłym!");
+            else if (resultDate >= 0) ShowError("Podana data zakończenia jest dniem przeszłym!");
             else if (date1 >= DateTime.Now) ShowError("Data założenia nie może być większa od dzisiejszego dnia!");
             else
             {

@@ -56,16 +56,14 @@ namespace DesktopApp
             };
 
             DropDownButton btnCreateAccount = new DropDownButton("Zakładanie konta");
-            DropDownButton btnPaymentIn = new DropDownButton("Wpłata");
-            DropDownButton btnPaymentOut = new DropDownButton("Wypłata");
+            DropDownButton btnPayment = new DropDownButton("Wpłata / wypłata");
             DropDownButton btnDeleteAccount = new DropDownButton("Usuń konto");
             DropDownButton btnNewLoan = new DropDownButton("Nowa pożyczka");
             DropDownButton btnActualLoan = new DropDownButton("Aktualne pożyczki");
             DropDownButton btnRepaymentLoan = new DropDownButton("Spłać pożyczkę");
 
             miAccount.Items.Add(btnCreateAccount);
-            miAccount.Items.Add(btnPaymentIn);
-            miAccount.Items.Add(btnPaymentOut);
+            miAccount.Items.Add(btnPayment);
             miAccount.Items.Add(btnDeleteAccount);
 
             miLoan.Items.Add(btnNewLoan);
@@ -86,6 +84,7 @@ namespace DesktopApp
             UIButtonsDockPanel dpButton = new UIButtonsDockPanel(btnCancel);
 
             btnCreateAccount.Click += NewAccountWindow;
+            btnPayment.Click += PaymentWindow;
             btnCancel.Click += DeletePanel;
 
             mainWindow.Children.Add(sp);
@@ -118,6 +117,31 @@ namespace DesktopApp
                         "Informacja",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
+                    );
+                }
+            }
+
+            void PaymentWindow(object o, EventArgs ev)
+            {
+                List<Account> accounts = new List<Account>();
+                using (var context = new SystemObsługiBankuDBEntities())
+                {
+                    accounts = context.Account.Where(x => x.CustomerID == customer.ID).ToList();
+                }
+
+                if (accounts.Count > 0)
+                {
+                    CustomerPayment customerPayment = new CustomerPayment(customer);
+                    customerPayment.Show();
+                }
+                else
+                {
+                    MessageBox.Show
+                    (
+                        $"Użytkownik nie posiada jeszcze konta.",
+                        "Informacja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
                     );
                 }
             }

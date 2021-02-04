@@ -81,8 +81,17 @@
     <Compile Include="Customer.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDeleteAccount.xaml.cs">
+      <DependentUpon>CustomerDeleteAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerLoans.xaml.cs">
+      <DependentUpon>CustomerLoans.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomerNewAccount.xaml.cs">
       <DependentUpon>CustomerNewAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerNewLoan.xaml.cs">
+      <DependentUpon>CustomerNewLoan.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomerPayment.xaml.cs">
       <DependentUpon>CustomerPayment.xaml</DependentUpon>
@@ -134,7 +143,19 @@
     <Compile Include="UILabel.cs" />
     <Compile Include="EmployeeLoginPanel.cs" />
     <Compile Include="UINumberTextBox.cs" />
+    <Page Include="CustomerDeleteAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerLoans.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomerNewAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerNewLoan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -39,6 +39,8 @@ namespace DesktopApp
                 Margin = new Thickness(0, 20, 0, 80),
             };
 
+            //Expander
+
             MenuItem miAccount = new MenuItem
             {
                 Header = "Konto",
@@ -85,6 +87,11 @@ namespace DesktopApp
 
             btnCreateAccount.Click += NewAccountWindow;
             btnPayment.Click += PaymentWindow;
+            btnDeleteAccount.Click += DeleteAccountWindow;
+
+            btnNewLoan.Click += NewLoanWindow;
+            btnActualLoan.Click += ActualLoanWindow;
+
             btnCancel.Click += DeletePanel;
 
             mainWindow.Children.Add(sp);
@@ -113,7 +120,7 @@ namespace DesktopApp
                 {
                     MessageBox.Show
                     (
-                        $"Użytkownik posiada maksymalną ilość kont ( {accounts.Count} ).",
+                        $"Klient posiada maksymalną ilość kont ( {accounts.Count} ).",
                         "Informacja",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
@@ -138,7 +145,82 @@ namespace DesktopApp
                 {
                     MessageBox.Show
                     (
-                        $"Użytkownik nie posiada jeszcze konta.",
+                        $"Klient nie posiada jeszcze konta.",
+                        "Informacja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+            }
+
+            void DeleteAccountWindow(object o, EventArgs ev)
+            {
+                List<Account> accounts = new List<Account>();
+                using (var context = new SystemObsługiBankuDBEntities())
+                {
+                    accounts = context.Account.Where(x => x.CustomerID == customer.ID).ToList();
+                }
+
+                if (accounts.Count > 0)
+                {
+                    CustomerDeleteAccount customerDeleteWindow = new CustomerDeleteAccount(customer);
+                    customerDeleteWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show
+                    (
+                        $"Klient nie posiada kont do usunięcia.",
+                        "Informacja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+            }
+
+            void NewLoanWindow(object o, EventArgs ev)
+            {
+                List<Loan> loans = new List<Loan>();
+                using (var context = new SystemObsługiBankuDBEntities())
+                {
+                    loans = context.Loan.Where(x => x.CustomerID == customer.ID).ToList();
+                }
+
+                if (loans.Count > 0)
+                {
+                    CustomerNewLoan customerNewLoan = new CustomerNewLoan(customer);
+                    customerNewLoan.Show();
+                }
+                else
+                {                
+                    MessageBox.Show
+                    (
+                        $"Klient nie posiada pożyczek.",
+                        "Informacja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+            }
+
+            void ActualLoanWindow(object o, EventArgs ev)
+            {
+                List<Loan> loans = new List<Loan>();
+                using (var context = new SystemObsługiBankuDBEntities())
+                {
+                    loans = context.Loan.Where(x => x.CustomerID == customer.ID).ToList();
+                }
+
+                if (loans.Count > 0)
+                {
+                    CustomerLoans customerLoans = new CustomerLoans(customer);
+                    customerLoans.Show();
+                }
+                else
+                {
+                    MessageBox.Show
+                    (
+                        $"Użytkownik posiada maksymalną ilość pożyczek ( {loans.Count} ).",
                         "Informacja",
                         MessageBoxButton.OK,
                         MessageBoxImage.Information

@@ -29,3 +29,9 @@ C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewAc
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewAccount.baml
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerPayment.g.cs
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerPayment.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerDeleteAccount.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerDeleteAccount.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewLoan.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewLoan.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerLoans.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerLoans.baml

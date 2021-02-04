@@ -165,5 +165,66 @@ namespace DesktopApp
                 FontWeight = FontWeights.Bold,
             });
         }
+
+        public UICustomerDockPanel(string accountName, bool check)
+        {
+            Background = Brushes.PaleVioletRed;
+
+            Children.Add(new CheckBox
+            {
+                Width = 40,
+                Height = 40,
+                VerticalContentAlignment = VerticalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                Margin = new Thickness(20, 0, -10, 0),
+                IsChecked = check,
+            });
+
+            Children.Add(new Label
+            {
+                Content = accountName,
+                Padding = new Thickness(10),
+                Background = Brushes.DodgerBlue,
+                FontSize = 12,
+                VerticalContentAlignment = VerticalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+            });
+        }
+
+        public UICustomerDockPanel(string lblContent, Slider slider)
+        {
+            Children.Add(new Label
+            {
+                Content = lblContent,
+                Padding = new Thickness(10),
+                Background = Brushes.DodgerBlue,
+                FontSize = 12,
+                Width = 100,
+                VerticalContentAlignment = VerticalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+            });
+
+            slider.Width = 200;
+            slider.ValueChanged += ChangeValue;
+
+            Children.Add(slider);
+
+            Children.Add(new Label
+            {
+                Content = slider.Value.ToString(),
+                Padding = new Thickness(10),
+                Background = Brushes.DodgerBlue,
+                FontSize = 12,
+                VerticalContentAlignment = VerticalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+            });
+        }
+
+        public void ChangeValue(object o, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Slider slider = (Slider)o;
+            Label lblValue = this.Children[2] as Label;
+            lblValue.Content = Math.Round(slider.Value, 0);
+        }
     }
 }

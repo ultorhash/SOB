@@ -59,36 +59,6 @@ namespace DesktopApp
 
             for (int i = 0; i < 6; i++)
             {
-                if (i == 0)
-                {
-                    Children.Add(actionDP);
-                    actionDP.Children.Add(new Label
-                    {
-                        Content = labels[i],
-                        Width = 60,
-                        Height = 40,
-                        VerticalContentAlignment = VerticalAlignment.Center,
-                        HorizontalContentAlignment = HorizontalAlignment.Center,
-                        Foreground = Brushes.Maroon,
-                        Background = Brushes.PaleVioletRed,
-                        FontWeight = FontWeights.Bold,
-                        Padding = new Thickness(30, 0, 0, 0),
-                    });
-
-                    actionDP.Children.Add(new Label
-                    {
-                        Content = "⚠",
-                        Width = 40,
-                        Height = 40,
-                        VerticalContentAlignment = VerticalAlignment.Center,
-                        HorizontalContentAlignment = HorizontalAlignment.Center,
-                        Background = Brushes.PaleVioletRed,
-                        Foreground = Brushes.Maroon,
-                        Padding = new Thickness(0, 0, -20, 0),
-                        ToolTip = "Zaznacz tą opcję, aby potwierdzić wykonanie operacji",
-                    });
-                }
-                else
                 {
                     Children.Add(new Label
                     {
@@ -166,7 +136,7 @@ namespace DesktopApp
             });
         }
 
-        public UICustomerDockPanel(string accountName, bool check)
+        public UICustomerDockPanel(string name, bool check)
         {
             Background = Brushes.PaleVioletRed;
 
@@ -182,7 +152,7 @@ namespace DesktopApp
 
             Children.Add(new Label
             {
-                Content = accountName,
+                Content = name,
                 Padding = new Thickness(10),
                 Background = Brushes.DodgerBlue,
                 FontSize = 12,
@@ -206,6 +176,10 @@ namespace DesktopApp
 
             slider.Width = 200;
             slider.ValueChanged += ChangeValue;
+            slider.HorizontalAlignment = HorizontalAlignment.Center;
+            slider.VerticalAlignment = VerticalAlignment.Center;
+            slider.Margin = new Thickness(10, 0, 10, 0);
+            slider.Cursor = Cursors.Hand;
 
             Children.Add(slider);
 
@@ -218,6 +192,33 @@ namespace DesktopApp
                 VerticalContentAlignment = VerticalAlignment.Center,
                 HorizontalContentAlignment = HorizontalAlignment.Center,
             });
+        }
+
+        public UICustomerDockPanel(decimal ammount, byte percent, DateTime startDate, DateTime endDate)
+        {
+            string[] values = new string[6]
+            {
+                $"{Math.Round(ammount, 2)}",
+                $"{percent}%",
+                $"{startDate.ToShortDateString()}",
+                $"{endDate.ToShortDateString()}",
+                $"{Math.Round(ammount + (ammount * (percent / ((endDate - startDate).Days)) * (DateTime.Now - startDate).Days), 2)}",
+                (endDate - DateTime.Now).Days > 0 ? $"{(endDate - DateTime.Now).Days + 1}" : "Zaległość!",
+            };
+
+            for (int i = 0; i < 6; i++)
+            {
+                Children.Add(new Label
+                {
+                    Content = values[i],
+                    Padding = new Thickness(10),
+                    Background = Brushes.LightGray,
+                    FontSize = 12,
+                    Width = 100,
+                    VerticalContentAlignment = VerticalAlignment.Center,
+                    HorizontalContentAlignment = HorizontalAlignment.Center,
+                });     
+            }
         }
 
         public void ChangeValue(object o, RoutedPropertyChangedEventArgs<double> e)

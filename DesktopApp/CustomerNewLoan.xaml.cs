@@ -40,7 +40,7 @@ namespace DesktopApp
             UICustomerDockPanel loanStartDate = new UICustomerDockPanel("Od dnia", new DatePicker());
             UICustomerDockPanel loanEndDate = new UICustomerDockPanel("Do dnia", new DatePicker());
 
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 15, 0, 0) };
+            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 10, 0, 0) };
 
             sp.Children.Add(loanBalance);
             sp.Children.Add(loanPercent);

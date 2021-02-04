@@ -91,6 +91,7 @@ namespace DesktopApp
 
             btnNewLoan.Click += NewLoanWindow;
             btnActualLoan.Click += ActualLoanWindow;
+            btnRepaymentLoan.Click += RepaymentLoanWindow;
 
             btnCancel.Click += DeletePanel;
 
@@ -123,7 +124,7 @@ namespace DesktopApp
                         $"Klient posiada maksymalną ilość kont ( {accounts.Count} ).",
                         "Informacja",
                         MessageBoxButton.OK,
-                        MessageBoxImage.Error
+                        MessageBoxImage.Information
                     );
                 }
             }
@@ -186,7 +187,7 @@ namespace DesktopApp
                     loans = context.Loan.Where(x => x.CustomerID == customer.ID).ToList();
                 }
 
-                if (loans.Count > 0)
+                if (loans.Count < 2)
                 {
                     CustomerNewLoan customerNewLoan = new CustomerNewLoan(customer);
                     customerNewLoan.Show();
@@ -195,7 +196,7 @@ namespace DesktopApp
                 {                
                     MessageBox.Show
                     (
-                        $"Klient nie posiada pożyczek.",
+                        $"Klient posiada maksymalną ilość pożyczek ( {loans.Count} ).",
                         "Informacja",
                         MessageBoxButton.OK,
                         MessageBoxImage.Information
@@ -220,7 +221,32 @@ namespace DesktopApp
                 {
                     MessageBox.Show
                     (
-                        $"Użytkownik posiada maksymalną ilość pożyczek ( {loans.Count} ).",
+                        $"Klient nie posiada aktualnie pożyczek.",
+                        "Informacja",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                    );
+                }
+            }
+
+            void RepaymentLoanWindow(object o, EventArgs e)
+            {
+                List<Loan> loans = new List<Loan>();
+                using (var context = new SystemObsługiBankuDBEntities())
+                {
+                    loans = context.Loan.Where(x => x.CustomerID == customer.ID).ToList();
+                }
+
+                if (loans.Count > 0)
+                {
+                    CustomerRepaymentLoan customerRepaymentLoan = new CustomerRepaymentLoan(customer);
+                    customerRepaymentLoan.Show();
+                }
+                else
+                {
+                    MessageBox.Show
+                    (
+                        $"Klient nie posiada aktualnie pożyczek do spłacenia.",
                         "Informacja",
                         MessageBoxButton.OK,
                         MessageBoxImage.Information

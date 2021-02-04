@@ -88,14 +88,7 @@ namespace DesktopApp
                 }
             }
 
-            if (!isDeleted)
-            {
-                ShowInfoMessage
-                (
-                    $"Nie wybrano żadnego konta.",
-                    MessageBoxImage.Information
-                );
-            }
+            if (!isDeleted) ShowInfoMessage($"Nie wybrano żadnego konta.", MessageBoxImage.Information);
             else Close();
         }
 

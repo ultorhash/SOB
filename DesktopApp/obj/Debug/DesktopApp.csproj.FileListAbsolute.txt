@@ -35,3 +35,5 @@ C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewLo
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerNewLoan.baml
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerLoans.g.cs
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerLoans.baml
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerRepaymentLoan.g.cs
+C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\obj\Debug\CustomerRepaymentLoan.baml

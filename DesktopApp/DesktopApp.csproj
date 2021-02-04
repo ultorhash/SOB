@@ -96,6 +96,9 @@
     <Compile Include="CustomerPayment.xaml.cs">
       <DependentUpon>CustomerPayment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRepaymentLoan.xaml.cs">
+      <DependentUpon>CustomerRepaymentLoan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeleteCustomerPanel.cs" />
     <Compile Include="DropDownButton.cs" />
     <Compile Include="Employee.cs">
@@ -160,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomerPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerRepaymentLoan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

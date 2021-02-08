@@ -36,6 +36,16 @@ namespace DesktopApp
                 VerticalContentAlignment = VerticalAlignment.Center,
             };
 
+            Label lblLoginError = new Label
+            {
+                Content = "",
+                FontWeight = FontWeights.Bold,
+                Background = Brushes.SteelBlue,
+                Foreground = Brushes.White,
+                HorizontalContentAlignment = HorizontalAlignment.Center,
+                VerticalContentAlignment = VerticalAlignment.Center,
+            };
+
             PasswordBox pbLogin = new PasswordBox
             {
                 Password = "3#frTK4!45oRR9",
@@ -53,6 +63,7 @@ namespace DesktopApp
             mainWindow.Children.Add(lblTitleApp);
             mainWindow.Children.Add(spLoginBox);
             mainWindow.Children.Add(spInfoBox);
+            mainWindow.Children.Add(lblLoginError);
 
             Grid.SetColumn(lblTitleApp, 2);
             Grid.SetRow(lblTitleApp, 1);
@@ -62,6 +73,9 @@ namespace DesktopApp
 
             Grid.SetColumn(spLoginBox, 2);
             Grid.SetRow(spLoginBox, 4);
+
+            Grid.SetColumn(lblLoginError, 2);
+            Grid.SetRow(lblLoginError, 5);
 
             spInfoBox.Children.Add(lblInfoEmployee);
             spInfoBox.Children.Add(pbLogin);
@@ -80,28 +94,30 @@ namespace DesktopApp
         {
             StackPanel sp = (StackPanel)mainWindow.Children[2];
             PasswordBox pb = (PasswordBox)sp.Children[1];
+            Label lbl = (Label)mainWindow.Children[3];
 
-            var employee = await FindEmployee(pb.Password);
-            LoadMenuPanel(employee);
+            Employee employee = await FindEmployee(pb.Password, lbl);
+
+            if (employee != null) LoadMenuPanel(employee);
+            else
+            {
+                lbl.Foreground = Brushes.DarkRed;
+                lbl.Content = "Nieprawidłowy identyfikator! Spróbuj ponownie.";
+            }
         }
 
-        public async Task<Employee> FindEmployee(string password)
+        public async Task<Employee> FindEmployee(string password, Label label)
         {
             List<Employee> employees = new List<Employee>();
+            Employee employee = null;
+
+            label.Foreground = Brushes.White;
+            label.Content = "Logowanie...";
+
             using (var context = new SystemObsługiBankuDBEntities())
             {
-                //loggedEmployee = context.Employee.Single(x => x.AuthorizationCode == password);
-                //loggedEmployee = await Task.FromResult(context.Employee.Single(x => x.AuthorizationCode == password));
-                return await Task.Run(() => context.Employee.Single(x => x.AuthorizationCode == password));
+                return await Task.Run(() => employee = context.Employee.SingleOrDefault(x => x.AuthorizationCode == password));
             }
-
-            /*if (loggedEmployee != null)
-            {
-                DeleteLoginPanel();
-                return loggedEmployee;
-            }
-
-            return null;*/
         }
 
         public void DeleteLoginPanel()

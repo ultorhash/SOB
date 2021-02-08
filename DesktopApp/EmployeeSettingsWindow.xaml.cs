@@ -34,7 +34,7 @@ namespace DesktopApp
 
             UIButton btnBack = new UIButton("Powrót");
 
-            UIThemeButton btnTheme1 = new UIThemeButton(Brushes.LemonChiffon);
+            UIThemeButton btnTheme1 = new UIThemeButton(Brushes.Black);
             UIThemeButton btnTheme2 = new UIThemeButton(Brushes.DarkGray);
             UIThemeButton btnTheme3 = new UIThemeButton(Brushes.DimGray);    
             UIThemeButton btnTheme4 = new UIThemeButton(Brushes.SteelBlue);

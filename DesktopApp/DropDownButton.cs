@@ -13,8 +13,9 @@ namespace DesktopApp
             Content = content;
             Background = Brushes.DodgerBlue;
             Width = 120;
-            Margin = new Thickness(-40, 0, 0, 0);
             FontWeight = FontWeights.Bold;
+            Padding = new Thickness(10);
+            FontSize = 10;
         }
     }
 }

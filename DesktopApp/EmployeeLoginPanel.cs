@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -75,26 +76,32 @@ namespace DesktopApp
         }
 
         public void ExitApp(object sender, EventArgs e) => Close();
-        public void LoginApp(object sender, EventArgs e)
+        public async void LoginApp(object sender, EventArgs e)
         {
             StackPanel sp = (StackPanel)mainWindow.Children[2];
             PasswordBox pb = (PasswordBox)sp.Children[1];
-            FindEmployee(pb.Password);
+
+            var employee = await FindEmployee(pb.Password);
+            LoadMenuPanel(employee);
         }
 
-        public void FindEmployee(string password)
+        public async Task<Employee> FindEmployee(string password)
         {
             List<Employee> employees = new List<Employee>();
             using (var context = new SystemObsługiBankuDBEntities())
             {
-                loggedEmployee = context.Employee.Single(x => x.AuthorizationCode == password);
+                //loggedEmployee = context.Employee.Single(x => x.AuthorizationCode == password);
+                //loggedEmployee = await Task.FromResult(context.Employee.Single(x => x.AuthorizationCode == password));
+                return await Task.Run(() => context.Employee.Single(x => x.AuthorizationCode == password));
             }
 
-            if (loggedEmployee != null)
+            /*if (loggedEmployee != null)
             {
                 DeleteLoginPanel();
-                LoadMenuPanel(loggedEmployee);
+                return loggedEmployee;
             }
+
+            return null;*/
         }
 
         public void DeleteLoginPanel()

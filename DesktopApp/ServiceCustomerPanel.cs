@@ -23,37 +23,19 @@ namespace DesktopApp
 
             UIButton btnCancel = new UIButton("Powrót");
 
-            Menu menuAccount = new Menu
+            Expander accountMenu = new Expander
             {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Background = Brushes.DeepSkyBlue,
-                Margin = new Thickness(0, 20, 0, 0),
-            };
-
-            Menu menuLoan = new Menu
-            {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Background = Brushes.DeepSkyBlue,
-                Margin = new Thickness(0, 20, 0, 80),
-            };
-
-            //Expander
-
-            MenuItem miAccount = new MenuItem
-            {
-                Header = "Konto",
+                Header = "Konto klienta",
+                Background = Brushes.LightGray,
                 Padding = new Thickness(10),
-                Background = Brushes.DodgerBlue, 
                 FontWeight = FontWeights.Bold,
             };
 
-            MenuItem miLoan = new MenuItem
+            Expander loanMenu = new Expander
             {
-                Header = "Pożyczka",
+                Header = "Pożyczki klienta",
+                Background = Brushes.LightGray,
                 Padding = new Thickness(10),
-                Background = Brushes.DodgerBlue,
                 FontWeight = FontWeights.Bold,
             };
 
@@ -64,16 +46,11 @@ namespace DesktopApp
             DropDownButton btnActualLoan = new DropDownButton("Aktualne pożyczki");
             DropDownButton btnRepaymentLoan = new DropDownButton("Spłać pożyczkę");
 
-            miAccount.Items.Add(btnCreateAccount);
-            miAccount.Items.Add(btnPayment);
-            miAccount.Items.Add(btnDeleteAccount);
+            UIButtonsDockPanel customerAccount = new UIButtonsDockPanel(btnCreateAccount, btnPayment, btnDeleteAccount);
+            UIButtonsDockPanel customerLoan = new UIButtonsDockPanel(btnNewLoan, btnActualLoan, btnRepaymentLoan);
 
-            miLoan.Items.Add(btnNewLoan);
-            miLoan.Items.Add(btnActualLoan);
-            miLoan.Items.Add(btnRepaymentLoan);
-
-            menuAccount.Items.Add(miAccount);
-            menuLoan.Items.Add(miLoan);
+            accountMenu.Content = customerAccount;
+            loanMenu.Content = customerLoan;
 
             Label lblTitle = new Label
             {
@@ -97,8 +74,8 @@ namespace DesktopApp
 
             mainWindow.Children.Add(sp);
             sp.Children.Add(lblTitle);
-            sp.Children.Add(menuAccount);
-            sp.Children.Add(menuLoan);
+            sp.Children.Add(accountMenu);
+            sp.Children.Add(loanMenu);
             sp.Children.Add(dpButton);
 
             Grid.SetColumn(sp, 2);

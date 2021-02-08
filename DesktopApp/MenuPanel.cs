@@ -13,6 +13,8 @@ namespace DesktopApp
     {
         public void LoadMenuPanel(Employee employee)
         {
+            DeleteLoginPanel();
+
             UILabel lblDateTime = new UILabel
             {
                 Content = "Strefa klienta",

@@ -14,11 +14,11 @@ namespace DesktopApp
         public void ServiceCustomerNumberPanel(object sender, EventArgs e)
         {
             Customer customer = null;
-            UINumberTextBox[] numberInput = new UINumberTextBox[11];
+            PeselTextBox[] numberInput = new PeselTextBox[11];
 
             for (int i = 0; i < numberInput.Length; i++)
             {
-                numberInput[i] = new UINumberTextBox();
+                numberInput[i] = new PeselTextBox();
             }
 
             StackPanel sp = new StackPanel
@@ -29,8 +29,8 @@ namespace DesktopApp
                 Margin = new Thickness(0, -120, 0, -120),
             };
 
-            UIButton btnCancel = new UIButton("Anuluj");
-            UIButton btnConfirm = new UIButton("Dalej");
+            AppButton.ActionButton btnCancel = new AppButton.ActionButton("Anuluj");
+            AppButton.ActionButton btnConfirm = new AppButton.ActionButton("Dalej");
 
             Label lblTitle = new Label
             {
@@ -52,12 +52,9 @@ namespace DesktopApp
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
 
-            foreach (var item in numberInput)
-            {
-                dpNumbers.Children.Add(item);
-            }
+            foreach (var item in numberInput) dpNumbers.Children.Add(item);
 
-            UIButtonsDockPanel dpButtons = new UIButtonsDockPanel(btnCancel, btnConfirm);
+            AppDockPanel.ButtonsDockPanel dpButtons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnCancel, btnConfirm);
 
             btnCancel.Click += DeletePanel;
             btnConfirm.Click += ServiceCustomer;
@@ -105,7 +102,7 @@ namespace DesktopApp
                 if (isSuccess)
                 {
                     mainWindow.Children.RemoveAt(mainWindow.Children.Count - 1);
-                    ServiceCustomerPanel(customer);
+                    ServiceCustomerPanel(customer, loggedEmployee);
                 }
             }
         }

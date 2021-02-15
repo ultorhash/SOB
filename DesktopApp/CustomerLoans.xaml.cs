@@ -51,8 +51,8 @@ namespace DesktopApp
                 sp.Children.Add(x);
             }
 
-            UIButton btnBack = new UIButton("Powrót");
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack) { Margin = new Thickness(0, 10, 0, 0) };
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 10, 0, 0 }, btnBack);
             
             sp.Children.Add(buttons);
             customerLoans.Children.Add(sp);

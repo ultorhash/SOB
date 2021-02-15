@@ -43,13 +43,13 @@ namespace DesktopApp
                     .Single(x => x.ID == employee.BranchID);
             }
 
-            UIButton btnBack = new UIButton("Powrót");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
 
-            sp.Children.Add(new UIEmployeeDockPanel("Nazwa oddziału", branch.BranchName.Trim()));
-            sp.Children.Add(new UIEmployeeDockPanel("Adres", branch.Adress.Trim()));
-            sp.Children.Add(new UIEmployeeDockPanel("Miasto", branch.City.Trim()));
-            sp.Children.Add(new UIEmployeeDockPanel("Kod pocztowy", branch.PostalCode.Trim()));
-            sp.Children.Add(new UIButtonsDockPanel(btnBack));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Nazwa oddziału", branch.BranchName.Trim()));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Adres", branch.Adress.Trim()));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Miasto", branch.City.Trim()));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Kod pocztowy", branch.PostalCode.Trim()));
+            sp.Children.Add(new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnBack));
 
             employeeBranchWindow.Children.Add(sp);
 

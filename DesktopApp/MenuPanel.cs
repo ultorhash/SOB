@@ -13,34 +13,29 @@ namespace DesktopApp
     {
         public void LoadMenuPanel(Employee employee)
         {
+            loggedEmployee = employee;
             DeleteLoginPanel();
 
-            UILabel lblDateTime = new UILabel
-            {
-                Content = "Strefa klienta",
-            };
-            UILabel lblEmployee = new UILabel
-            {
-                Content = $"Zalogowany: {employee.FirstName} {employee.LastName}",
-            };
+            AppLabel.DescriptionLabel lblCustomer = new AppLabel.DescriptionLabel("Strefa klienta");
+            AppLabel.DescriptionLabel lblSessionTime = new AppLabel.DescriptionLabel(null);
+            AppLabel.DescriptionLabel lblLogged = new AppLabel.DescriptionLabel($"Zalogowany: {employee.FirstName} {employee.LastName}");
+            AppLabel.DescriptionLabel lblTime = new AppLabel.DescriptionLabel(null);
+            AppLabel.DescriptionLabel lblEmployee = new AppLabel.DescriptionLabel("Strefa pracownika");
 
-            UILabel lblSessionTime = new UILabel
-            {
-                Content = "Strefa pracownika",
-            };
+            AppButton.MenuButton btnCustomerService = new AppButton.MenuButton("Obsługa klienta");
+            AppButton.MenuButton btnCustomerAdd = new AppButton.MenuButton("Dodawanie klienta");
+            AppButton.MenuButton btnCustomerDelete = new AppButton.MenuButton("Usuwanie klienta");
+            AppButton.MenuButton btnBranchInfo = new AppButton.MenuButton("Informacje o oddziale");
+            AppButton.MenuButton btnEmployeeInfo = new AppButton.MenuButton("Twoje dane");
+            AppButton.MenuButton btnEmployeeSettings = new AppButton.MenuButton("Ustawienia");
 
-            OperationButton btnCustomerService = new OperationButton("Obsługa klienta");
-            OperationButton btnCustomerAdd = new OperationButton("Dodawanie klienta");
-            OperationButton btnCustomerDelete = new OperationButton("Usuwanie klienta");
-            OperationButton btnBranchInfo = new OperationButton("Informacje o oddziale");
-            OperationButton btnEmployeeInfo = new OperationButton("Twoje dane");
-            OperationButton btnEmployeeSettings = new OperationButton("Ustawienia");
+            AppButton.ActionButton btnLogout = new AppButton.ActionButton("Wyloguj");
 
-            UIButton btnLogout = new UIButton("Wyloguj");
-
-            mainWindow.Children.Add(lblDateTime);
-            mainWindow.Children.Add(lblEmployee);
+            mainWindow.Children.Add(lblCustomer);
             mainWindow.Children.Add(lblSessionTime);
+            mainWindow.Children.Add(lblLogged);
+            mainWindow.Children.Add(lblTime);
+            mainWindow.Children.Add(lblEmployee);
             mainWindow.Children.Add(btnCustomerService);
             mainWindow.Children.Add(btnCustomerAdd);
             mainWindow.Children.Add(btnCustomerDelete);
@@ -49,35 +44,18 @@ namespace DesktopApp
             mainWindow.Children.Add(btnEmployeeSettings);
             mainWindow.Children.Add(btnLogout);
 
-            Grid.SetColumn(lblEmployee, 0);
-            Grid.SetRow(lblEmployee, 0);
-
-            Grid.SetColumn(lblEmployee, 2);
-            Grid.SetRow(lblEmployee, 0);
-
-            Grid.SetColumn(lblSessionTime, 4);
-            Grid.SetRow(lblSessionTime, 0);
-
-            Grid.SetColumn(btnCustomerService, 0);
-            Grid.SetRow(btnCustomerService, 1);
-
-            Grid.SetColumn(btnCustomerAdd, 0);
-            Grid.SetRow(btnCustomerAdd, 2);
-
-            Grid.SetColumn(btnCustomerDelete, 0);
-            Grid.SetRow(btnCustomerDelete, 3);
-
-            Grid.SetColumn(btnBranchInfo, 4);
-            Grid.SetRow(btnBranchInfo, 1);
-
-            Grid.SetColumn(btnEmployeeInfo, 4);
-            Grid.SetRow(btnEmployeeInfo, 2);
-
-            Grid.SetColumn(btnEmployeeSettings, 4);
-            Grid.SetRow(btnEmployeeSettings, 3);
-
-            Grid.SetColumn(btnLogout, 4);
-            Grid.SetRow(btnLogout, 6);
+            Grid.SetColumn(lblCustomer, 0); Grid.SetRow(lblCustomer, 0);
+            Grid.SetColumn(lblSessionTime, 1); Grid.SetRow(lblCustomer, 0);
+            Grid.SetColumn(lblLogged, 2); Grid.SetRow(lblLogged, 0);
+            Grid.SetColumn(lblTime, 3); Grid.SetRow(lblTime, 0);
+            Grid.SetColumn(lblEmployee, 4); Grid.SetRow(lblEmployee, 0);
+            Grid.SetColumn(btnCustomerService, 0); Grid.SetRow(btnCustomerService, 1);
+            Grid.SetColumn(btnCustomerAdd, 0); Grid.SetRow(btnCustomerAdd, 2);
+            Grid.SetColumn(btnCustomerDelete, 0); Grid.SetRow(btnCustomerDelete, 3);
+            Grid.SetColumn(btnBranchInfo, 4); Grid.SetRow(btnBranchInfo, 1);
+            Grid.SetColumn(btnEmployeeInfo, 4); Grid.SetRow(btnEmployeeInfo, 2);
+            Grid.SetColumn(btnEmployeeSettings, 4); Grid.SetRow(btnEmployeeSettings, 3);
+            Grid.SetColumn(btnLogout, 4); Grid.SetRow(btnLogout, 6);
 
             btnCustomerService.Click += ServiceCustomerNumberPanel;
             btnCustomerAdd.Click += AddCustomerPanel;

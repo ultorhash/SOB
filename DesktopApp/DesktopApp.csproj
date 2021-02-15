@@ -74,6 +74,9 @@
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AddCustomerPanel.cs" />
+    <Compile Include="AppButton.cs" />
+    <Compile Include="AppDockPanel.cs" />
+    <Compile Include="AppLabel.cs" />
     <Compile Include="Branch.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -113,11 +116,11 @@
     <Compile Include="EmployeeSettingsWindow.xaml.cs">
       <DependentUpon>EmployeeSettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IDeleteContent.cs" />
     <Compile Include="Loan.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MenuPanel.cs" />
-    <Compile Include="OperationButton.cs" />
     <Compile Include="ServiceCustomerNumberPanel.cs" />
     <Compile Include="ServiceCustomerPanel.cs" />
     <Compile Include="SOBModel.Context.cs">
@@ -138,14 +141,9 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UIButton.cs" />
     <Compile Include="UICustomerDockPanel.cs" />
-    <Compile Include="UIButtonsDockPanel.cs" />
-    <Compile Include="UIThemeButton.cs" />
-    <Compile Include="UIEmployeeDockPanel.cs" />
-    <Compile Include="UILabel.cs" />
     <Compile Include="EmployeeLoginPanel.cs" />
-    <Compile Include="UINumberTextBox.cs" />
+    <Compile Include="PeselTextBox.cs" />
     <Page Include="CustomerDeleteAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

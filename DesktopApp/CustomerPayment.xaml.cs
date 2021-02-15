@@ -41,10 +41,10 @@ namespace DesktopApp
             UICustomerDockPanel description = new UICustomerDockPanel(
                 new string[6] { "Akcja", "Wpłata", "Wypłata", "Nazwa konta", "Aktualny stan", "Kwota ( ZŁ )" });
 
-            UIButton btnBack = new UIButton("Powrót");
-            UIButton btnApply = new UIButton("Zatwierdź");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
+            AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
 
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 10, 0, 0)};
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 10, 0, 0 }, btnBack, btnApply);
 
             sp.Children.Add(description);
 

@@ -20,8 +20,8 @@ namespace DesktopApp
                 Margin = new Thickness(0, -120, 0, -120),
             };
 
-            UIButton btnCancel = new UIButton("Anuluj");
-            UIButton btnConfirm = new UIButton("Zatwierdź");
+            AppButton.ActionButton btnCancel = new AppButton.ActionButton("Anuluj");
+            AppButton.ActionButton btnConfirm = new AppButton.ActionButton("Zatwierdź");
 
             UICustomerDockPanel dpCustomerID = new UICustomerDockPanel("Numer PESEL", 11);
             UICustomerDockPanel dpCustomerFN = new UICustomerDockPanel("Imię", 30);
@@ -30,7 +30,7 @@ namespace DesktopApp
             UICustomerDockPanel dpCustomerGender = new UICustomerDockPanel("Płeć ( M / K )", 1);
             UICustomerDockPanel dpCustomerAdress = new UICustomerDockPanel("Ulica", 50);
             UICustomerDockPanel dpCustomerCity = new UICustomerDockPanel("Miasto", 30);
-            UIButtonsDockPanel dpButtons = new UIButtonsDockPanel(btnCancel, btnConfirm);
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnCancel, btnConfirm);
 
             btnCancel.Click += DeletePanel;
             btnConfirm.Click += ConfirmCustomerAdd;
@@ -43,7 +43,7 @@ namespace DesktopApp
             sp.Children.Add(dpCustomerGender);
             sp.Children.Add(dpCustomerAdress);
             sp.Children.Add(dpCustomerCity);
-            sp.Children.Add(dpButtons);
+            sp.Children.Add(buttons);
 
             Grid.SetColumn(sp, 2);
             Grid.SetRow(sp, 3);

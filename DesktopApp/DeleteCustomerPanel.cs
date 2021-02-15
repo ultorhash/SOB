@@ -13,8 +13,8 @@ namespace DesktopApp
     {
         public void DeleteCustomerPanel(object sender, EventArgs e)
         {
-            UINumberTextBox[] numberInput = new UINumberTextBox[11];
-            for (int i = 0; i < numberInput.Length; i++) numberInput[i] = new UINumberTextBox();
+            PeselTextBox[] numberInput = new PeselTextBox[11];
+            for (int i = 0; i < numberInput.Length; i++) numberInput[i] = new PeselTextBox();
 
             StackPanel sp = new StackPanel
             {
@@ -23,8 +23,8 @@ namespace DesktopApp
                 Margin = new Thickness(0, -120, 0, -120),
             };
 
-            UIButton btnCancel = new UIButton("Anuluj");
-            UIButton btnConfirm = new UIButton("Zatwierdź");
+            AppButton.ActionButton btnCancel = new AppButton.ActionButton("Anuluj");
+            AppButton.ActionButton btnConfirm = new AppButton.ActionButton("Zatwierdź");
 
             Label lblTitle = new Label
             {
@@ -61,7 +61,7 @@ namespace DesktopApp
                 dpNumbers.Children.Add(item);
             }
 
-            UIButtonsDockPanel dpButtons = new UIButtonsDockPanel(btnCancel, btnConfirm);
+            AppDockPanel.ButtonsDockPanel dpButtons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnCancel, btnConfirm);
 
             btnCancel.Click += DeletePanel;
             btnConfirm.Click += DeleteCustomer;

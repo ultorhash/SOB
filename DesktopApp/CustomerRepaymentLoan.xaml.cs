@@ -32,8 +32,8 @@ namespace DesktopApp
                 Height = 320,
             };
 
-            UIButton btnBack = new UIButton("Powrót");
-            UIButton btnApply = new UIButton("Spłać");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
+            AppButton.ActionButton btnApply = new AppButton.ActionButton("Spłać");
 
             List<Loan> loans = new List<Loan>();
             using (var context = new SystemObsługiBankuDBEntities())
@@ -53,7 +53,7 @@ namespace DesktopApp
                 sp.Children.Add(x);
             }
 
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 40, 0, 0) };
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 40, 0, 0 }, btnBack, btnApply);
 
             sp.Children.Add(buttons);
             customerRepaymentLoan.Children.Add(sp);

@@ -32,15 +32,15 @@ namespace DesktopApp
                 Height = 320,
             };
 
-            UIButton btnBack = new UIButton("Powrót");
-            UIButton btnApply = new UIButton("Zatwierdź");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
+            AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
 
             UICustomerDockPanel loanBalance = new UICustomerDockPanel("Kwota ( ZŁ )", new Slider { Maximum = 50_000, Minimum = 3000 });
             UICustomerDockPanel loanPercent = new UICustomerDockPanel("Procent", new Slider { Maximum = 100, Minimum = 0 });
             UICustomerDockPanel loanStartDate = new UICustomerDockPanel("Od dnia", new DatePicker());
             UICustomerDockPanel loanEndDate = new UICustomerDockPanel("Do dnia", new DatePicker());
 
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 10, 0, 0) };
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 10, 0, 0 }, btnBack, btnApply);
 
             sp.Children.Add(loanBalance);
             sp.Children.Add(loanPercent);

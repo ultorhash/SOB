@@ -46,10 +46,10 @@ namespace DesktopApp
                 sp.Children.Add(x);
             }
 
-            UIButton btnBack = new UIButton("Powrót");
-            UIButton btnApply = new UIButton("Zatwierdź");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
+            AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
 
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 30, 0, 0) };
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 30, 0, 0 }, btnBack, btnApply);
 
             sp.Children.Add(buttons);
             customerDeleteAccount.Children.Add(sp);

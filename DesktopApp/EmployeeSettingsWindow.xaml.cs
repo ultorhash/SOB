@@ -32,13 +32,13 @@ namespace DesktopApp
                 Height = 320,
             };
 
-            UIButton btnBack = new UIButton("Powrót");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
 
-            UIThemeButton btnTheme1 = new UIThemeButton(Brushes.Black);
-            UIThemeButton btnTheme2 = new UIThemeButton(Brushes.DarkGray);
-            UIThemeButton btnTheme3 = new UIThemeButton(Brushes.DimGray);    
-            UIThemeButton btnTheme4 = new UIThemeButton(Brushes.SteelBlue);
-            UIThemeButton btnTheme5 = new UIThemeButton(Brushes.DarkSlateGray);
+            AppButton.ThemeButton btnTheme1 = new AppButton.ThemeButton(Brushes.Black);
+            AppButton.ThemeButton btnTheme2 = new AppButton.ThemeButton(Brushes.DarkGray);
+            AppButton.ThemeButton btnTheme3 = new AppButton.ThemeButton(Brushes.DimGray);
+            AppButton.ThemeButton btnTheme4 = new AppButton.ThemeButton(Brushes.SteelBlue);
+            AppButton.ThemeButton btnTheme5 = new AppButton.ThemeButton(Brushes.DarkSlateGray);
 
             btnTheme1.Click += ChangeTheme;
             btnTheme2.Click += ChangeTheme;
@@ -47,8 +47,8 @@ namespace DesktopApp
             btnTheme5.Click += ChangeTheme;
             btnBack.Click += DeleteWindow;
 
-            sp.Children.Add(new UIEmployeeDockPanel("Motyw", btnTheme1, btnTheme2, btnTheme3, btnTheme4, btnTheme5));
-            sp.Children.Add(new UIButtonsDockPanel(btnBack));
+            sp.Children.Add(new AppDockPanel.ColorsDockPanel("Motyw", btnTheme1, btnTheme2, btnTheme3, btnTheme4, btnTheme5));
+            sp.Children.Add(new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnBack));
 
             employeeSettingsWindow.Children.Add(sp);
 

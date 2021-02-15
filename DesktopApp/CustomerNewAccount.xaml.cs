@@ -32,15 +32,15 @@ namespace DesktopApp
                 Height = 320,
             };
 
-            UIButton btnBack = new UIButton("Powrót");
-            UIButton btnApply = new UIButton("Zatwierdź");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
+            AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
 
             UICustomerDockPanel accountName = new UICustomerDockPanel("Nazwa konta", 30);
             UICustomerDockPanel accountMoney = new UICustomerDockPanel("Kwota ( ZŁ )", 7);
             UICustomerDockPanel accountOpenDate = new UICustomerDockPanel("Od dnia", new DatePicker());
             UICustomerDockPanel accountCloseDate = new UICustomerDockPanel("Do dnia", new DatePicker());
 
-            UIButtonsDockPanel buttons = new UIButtonsDockPanel(btnBack, btnApply) { Margin = new Thickness(0, 15, 0, 0) };
+            AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnBack, btnApply);
 
             sp.Children.Add(accountName);
             sp.Children.Add(accountMoney);
@@ -116,7 +116,7 @@ namespace DesktopApp
 
                 if (isValidMoney)
                 {
-                    using (var context = new SystemObsługiBankuDBEntities())
+                    using (var context = new SystemObsługiBankuDBEntities()) //logged employee null, naprawić
                     {
                         context.Account.Add(new Account
                         {

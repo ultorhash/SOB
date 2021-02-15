@@ -6,9 +6,9 @@ using System.Windows.Media;
 
 namespace DesktopApp
 {
-    public class UINumberTextBox : TextBox
+    public class PeselTextBox : TextBox
     {
-        public UINumberTextBox()
+        public PeselTextBox()
         {
             MaxLength = 1;
             Width = 25;

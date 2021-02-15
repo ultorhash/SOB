@@ -57,25 +57,18 @@ namespace DesktopApp
                 Padding = new Thickness(6),
             };
 
-            UIButton btnExit = new UIButton("Wyjście");
-            UIButton btnLogin = new UIButton("Zaloguj");
+            AppButton.ActionButton btnExit = new AppButton.ActionButton("Wyjście");
+            AppButton.ActionButton btnLogin = new AppButton.ActionButton("Zaloguj");
 
             mainWindow.Children.Add(lblTitleApp);
             mainWindow.Children.Add(spLoginBox);
             mainWindow.Children.Add(spInfoBox);
             mainWindow.Children.Add(lblLoginError);
 
-            Grid.SetColumn(lblTitleApp, 2);
-            Grid.SetRow(lblTitleApp, 1);
-
-            Grid.SetColumn(spInfoBox, 2);
-            Grid.SetRow(spInfoBox, 3);
-
-            Grid.SetColumn(spLoginBox, 2);
-            Grid.SetRow(spLoginBox, 4);
-
-            Grid.SetColumn(lblLoginError, 2);
-            Grid.SetRow(lblLoginError, 5);
+            Grid.SetColumn(lblTitleApp, 2); Grid.SetRow(lblTitleApp, 1);
+            Grid.SetColumn(spInfoBox, 2); Grid.SetRow(spInfoBox, 3);
+            Grid.SetColumn(spLoginBox, 2); Grid.SetRow(spLoginBox, 4);
+            Grid.SetColumn(lblLoginError, 2); Grid.SetRow(lblLoginError, 5);
 
             spInfoBox.Children.Add(lblInfoEmployee);
             spInfoBox.Children.Add(pbLogin);
@@ -96,9 +89,9 @@ namespace DesktopApp
             PasswordBox pb = (PasswordBox)sp.Children[1];
             Label lbl = (Label)mainWindow.Children[3];
 
-            Employee employee = await FindEmployee(pb.Password, lbl);
+            loggedEmployee = await FindEmployee(pb.Password, lbl);
 
-            if (employee != null) LoadMenuPanel(employee);
+            if (loggedEmployee != null) LoadMenuPanel(loggedEmployee);
             else
             {
                 lbl.Foreground = Brushes.DarkRed;

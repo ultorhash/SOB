@@ -11,7 +11,7 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void ServiceCustomerPanel(Customer customer)
+        public void ServiceCustomerPanel(Customer customer, Employee loggedEmployee)
         {
             StackPanel sp = new StackPanel
             {
@@ -21,7 +21,7 @@ namespace DesktopApp
                 Margin = new Thickness(0, -120, 0, -120),
             };
 
-            UIButton btnCancel = new UIButton("Powrót");
+            AppButton.ActionButton btnCancel = new AppButton.ActionButton("Powrót");
 
             Expander accountMenu = new Expander
             {
@@ -46,8 +46,10 @@ namespace DesktopApp
             DropDownButton btnActualLoan = new DropDownButton("Aktualne pożyczki");
             DropDownButton btnRepaymentLoan = new DropDownButton("Spłać pożyczkę");
 
-            UIButtonsDockPanel customerAccount = new UIButtonsDockPanel(btnCreateAccount, btnPayment, btnDeleteAccount);
-            UIButtonsDockPanel customerLoan = new UIButtonsDockPanel(btnNewLoan, btnActualLoan, btnRepaymentLoan);
+            AppDockPanel.ButtonsDockPanel customerAccount = new AppDockPanel.ButtonsDockPanel(
+                null, btnCreateAccount, btnPayment, btnDeleteAccount);
+            AppDockPanel.ButtonsDockPanel customerLoan = new AppDockPanel.ButtonsDockPanel(
+                null, btnNewLoan, btnActualLoan, btnRepaymentLoan);
 
             accountMenu.Content = customerAccount;
             loanMenu.Content = customerLoan;
@@ -60,7 +62,7 @@ namespace DesktopApp
                 VerticalContentAlignment = VerticalAlignment.Center,
             };
 
-            UIButtonsDockPanel dpButton = new UIButtonsDockPanel(btnCancel);
+            AppDockPanel.ButtonsDockPanel dpButton = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnCancel);
 
             btnCreateAccount.Click += NewAccountWindow;
             btnPayment.Click += PaymentWindow;

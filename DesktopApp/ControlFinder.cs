@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace DesktopApp
 {
+    /// <summary>
+    /// Klasa służąca do wyszukiwania kontrolek elementu nadrzędnego
+    /// </summary>
     public static class ControlFinder
     {
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject

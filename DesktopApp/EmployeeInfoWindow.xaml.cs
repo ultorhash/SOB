@@ -40,13 +40,13 @@ namespace DesktopApp
                     .Single(x => x.AuthorizationCode == loggedEmployee.AuthorizationCode);
             }
 
-            UIButton btnBack = new UIButton("Powrót");
+            AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
 
-            sp.Children.Add(new UIEmployeeDockPanel("Imię", employee.FirstName.Trim()));
-            sp.Children.Add(new UIEmployeeDockPanel("Nazwisko", employee.LastName.Trim()));
-            sp.Children.Add(new UIEmployeeDockPanel("Twój identyfikator", employee.AuthorizationCode.Trim()));
-            sp.Children.Add(new UIEmployeeDockPanel("Data zatrudnienia", employee.HireDate.ToString("dd/MM/yyyy").Trim()));
-            sp.Children.Add(new UIButtonsDockPanel(btnBack));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Imię", employee.FirstName.Trim()));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Nazwisko", employee.LastName.Trim()));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Twój identyfikator", employee.AuthorizationCode.Trim()));
+            sp.Children.Add(new AppDockPanel.DescriptionDockPanel("Data zatrudnienia", employee.HireDate.ToString("dd/MM/yyyy").Trim()));
+            sp.Children.Add(new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnBack));
 
             employeeInfoWindow.Children.Add(sp);
 

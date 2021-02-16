@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>ULTOR</Machine>
+    <WindowsUser>rajsk</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Release|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>beb056a4-ca0c-4ce7-b556-72048f7ebcca</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Szymon Rajski</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\obj\x86\Release\</IntermediateOutputPath>
+    <RemoteDeploymentType></RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath></WindowsSdkPath>
+    <LayoutDir>C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x86\Release\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x86\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll">
+      <PackagePath>System.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\BadgeLogo.scale-100.png">
+      <PackagePath>Images\BadgeLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\BadgeLogo.scale-125.png">
+      <PackagePath>Images\BadgeLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\BadgeLogo.scale-150.png">
+      <PackagePath>Images\BadgeLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\BadgeLogo.scale-200.png">
+      <PackagePath>Images\BadgeLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\BadgeLogo.scale-400.png">
+      <PackagePath>Images\BadgeLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\LargeTile.scale-100.png">
+      <PackagePath>Images\LargeTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\LargeTile.scale-125.png">
+      <PackagePath>Images\LargeTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\LargeTile.scale-150.png">
+      <PackagePath>Images\LargeTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\LargeTile.scale-200.png">
+      <PackagePath>Images\LargeTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\LargeTile.scale-400.png">
+      <PackagePath>Images\LargeTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SmallTile.scale-100.png">
+      <PackagePath>Images\SmallTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SmallTile.scale-125.png">
+      <PackagePath>Images\SmallTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SmallTile.scale-150.png">
+      <PackagePath>Images\SmallTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SmallTile.scale-200.png">
+      <PackagePath>Images\SmallTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SmallTile.scale-400.png">
+      <PackagePath>Images\SmallTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SplashScreen.scale-100.png">
+      <PackagePath>Images\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SplashScreen.scale-125.png">
+      <PackagePath>Images\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SplashScreen.scale-150.png">
+      <PackagePath>Images\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SplashScreen.scale-200.png">
+      <PackagePath>Images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\LockScreenLogo.scale-200.png">
+      <PackagePath>Images\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\SplashScreen.scale-400.png">
+      <PackagePath>Images\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square150x150Logo.scale-100.png">
+      <PackagePath>Images\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square150x150Logo.scale-125.png">
+      <PackagePath>Images\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square150x150Logo.scale-150.png">
+      <PackagePath>Images\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square150x150Logo.scale-200.png">
+      <PackagePath>Images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square150x150Logo.scale-400.png">
+      <PackagePath>Images\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>Images\Square44x44Logo.altform-lightunplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>Images\Square44x44Logo.altform-lightunplated_targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>Images\Square44x44Logo.altform-lightunplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>Images\Square44x44Logo.altform-lightunplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>Images\Square44x44Logo.altform-lightunplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Images\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Images\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Images\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Images\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.scale-100.png">
+      <PackagePath>Images\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.scale-125.png">
+      <PackagePath>Images\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.scale-150.png">
+      <PackagePath>Images\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.scale-200.png">
+      <PackagePath>Images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.scale-400.png">
+      <PackagePath>Images\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Images\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Images\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Images\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Images\Square44x44Logo.targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Images\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\StoreLogo.scale-100.png">
+      <PackagePath>Images\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\StoreLogo.scale-125.png">
+      <PackagePath>Images\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\StoreLogo.scale-150.png">
+      <PackagePath>Images\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\StoreLogo.scale-200.png">
+      <PackagePath>Images\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\StoreLogo.scale-400.png">
+      <PackagePath>Images\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Wide310x150Logo.scale-100.png">
+      <PackagePath>Images\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Wide310x150Logo.scale-125.png">
+      <PackagePath>Images\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Wide310x150Logo.scale-150.png">
+      <PackagePath>Images\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Wide310x150Logo.scale-200.png">
+      <PackagePath>Images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\Images\Wide310x150Logo.scale-400.png">
+      <PackagePath>Images\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x86\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll">
+      <PackagePath>DesktopApp\EntityFramework.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll">
+      <PackagePath>DesktopApp\EntityFramework.SqlServer.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\SOBModel.Context.tt">
+      <PackagePath>DesktopApp\SOBModel.Context.tt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\SOBModel.tt">
+      <PackagePath>DesktopApp\SOBModel.tt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\x86\Release\DesktopApp.exe">
+      <PackagePath>DesktopApp\DesktopApp.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\bin\x86\Release\DesktopApp.exe.config">
+      <PackagePath>DesktopApp\DesktopApp.exe.config</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

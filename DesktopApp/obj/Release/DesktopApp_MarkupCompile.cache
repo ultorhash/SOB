@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\DesktopApp\App.xaml
-61340436572
+10341246711
 2786790948
-35938666546
+34-1377455918
 18-680519386
-CustomerNewAccount.xaml;CustomerPayment.xaml;EmployeeBranchWindow.xaml;EmployeeInfoWindow.xaml;EmployeeSettingsWindow.xaml;MainWindow.xaml;
+CustomerDeleteAccount.xaml;CustomerLoans.xaml;CustomerNewAccount.xaml;CustomerNewLoan.xaml;CustomerPayment.xaml;CustomerRepaymentLoan.xaml;EmployeeBranchWindow.xaml;EmployeeInfoWindow.xaml;EmployeeSettingsWindow.xaml;MainWindow.xaml;
 
-True
+False
 

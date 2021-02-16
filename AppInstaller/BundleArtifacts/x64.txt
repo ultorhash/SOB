@@ -1,0 +1,6 @@
+MainPackage=C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x64\Release\AppInstaller_1.0.0.0_x64.msix
+SymbolPackage=C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\obj\x64\Release\Symbols\AppInstaller_1.0.0.0_x64.appxsym
+ResourcePack=C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x64\Release\AppInstaller_1.0.0.0_scale-100.msix
+ResourcePack=C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x64\Release\AppInstaller_1.0.0.0_scale-125.msix
+ResourcePack=C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x64\Release\AppInstaller_1.0.0.0_scale-150.msix
+ResourcePack=C:\Users\rajsk\OneDrive\Desktop\C# GitHub\SOB\AppInstaller\bin\x64\Release\AppInstaller_1.0.0.0_scale-400.msix

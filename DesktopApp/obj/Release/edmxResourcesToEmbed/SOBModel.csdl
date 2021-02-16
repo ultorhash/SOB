@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SystemObsługiBankuDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="AccountName" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="OpenDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CloseDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="BranchID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branch" Relationship="Self.FK_Account_Branch" FromRole="Account" ToRole="Branch" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Account_Customer" FromRole="Account" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_Account_Branch" FromRole="Branch" ToRole="Account" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Branch" FromRole="Branch" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_Account_Customer" FromRole="Customer" ToRole="Account" />
+    <NavigationProperty Name="Loan" Relationship="Self.FK_Loan_Customer" FromRole="Customer" ToRole="Loan" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salary" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+    <Property Name="AuthorizationCode" Type="String" MaxLength="14" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="BranchID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branch" Relationship="Self.FK_Employee_Branch" FromRole="Employee" ToRole="Branch" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PercentValue" Type="Byte" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CustomerID" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Loan_Customer" FromRole="Loan" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Account_Branch">
+    <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Account_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Branch">
+    <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Loan_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Loan" Type="Self.Loan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Loan">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SystemObsługiBankuDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account" EntityType="Self.Account" />
+    <EntitySet Name="Branch" EntityType="Self.Branch" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Loan" EntityType="Self.Loan" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Account_Branch" Association="Self.FK_Account_Branch">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Account_Customer" Association="Self.FK_Account_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Branch" Association="Self.FK_Employee_Branch">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Loan_Customer" Association="Self.FK_Loan_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Loan" EntitySet="Loan" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

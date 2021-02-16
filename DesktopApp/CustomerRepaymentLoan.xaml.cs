@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadRepaymentLoanWindow(customer);
         }
 
-        public void LoadRepaymentLoanWindow(Customer customer)
+        private void LoadRepaymentLoanWindow(Customer customer)
         {
             StackPanel sp = new StackPanel
             {
@@ -41,12 +41,12 @@ namespace DesktopApp
                 loans = context.Loan.Where(x => x.CustomerID == customer.ID).ToList();
             }
 
-            List<UICustomerDockPanel> dockPanelsLoans = new List<UICustomerDockPanel>();
+            List<AppDockPanel.ActionDockPanel> dockPanelsLoans = new List<AppDockPanel.ActionDockPanel>();
             foreach (var item in loans)
             {
-                var x = new UICustomerDockPanel(
+                var x = new AppDockPanel.ActionDockPanel(
                     ("Kwota początkowa " + Math.Round(item.Balance, 2).ToString() + " + " +
-                     Math.Round(item.Balance * (item.PercentValue / ((item.EndDate - item.StartDate).Days)) *
+                     Math.Round(item.Balance / 100 * (item.PercentValue  / ((item.EndDate - item.StartDate).Days)) *
                      (DateTime.Now - item.StartDate).Days)).ToString() + " odsetki ( ZŁ )", true);
 
                 dockPanelsLoans.Add(x);
@@ -65,7 +65,7 @@ namespace DesktopApp
             void DeleteWindow(object o, EventArgs ev) => Close();
         }
 
-        public void RepaymentLoanAction(List<UICustomerDockPanel> loans, Customer customer)
+        private void RepaymentLoanAction(List<AppDockPanel.ActionDockPanel> loans, Customer customer)
         {
             bool isDeleted = false;
 
@@ -98,7 +98,7 @@ namespace DesktopApp
             else Close();
         }
 
-        public void ShowInfoMessage(string msg, MessageBoxImage icon = MessageBoxImage.Error)
+        private void ShowInfoMessage(string msg, MessageBoxImage icon = MessageBoxImage.Error)
         {
             MessageBox.Show(msg, "Informacja", MessageBoxButton.OK, icon);
         }

@@ -11,6 +11,10 @@ namespace DesktopApp
     {
         public class DescriptionLabel : Label
         {
+            /// <summary>
+            /// Klasa reprezentująca element opisujący
+            /// </summary>
+            /// <param name="content">Zawartość tekstu opisującego</param>
             public DescriptionLabel(string content)
             {
                 VerticalContentAlignment = VerticalAlignment.Center;
@@ -23,6 +27,8 @@ namespace DesktopApp
                     FontSize = 15,
                     FontWeight = FontWeights.Bold,                 
                     TextWrapping = TextWrapping.Wrap,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
                 });
             }
         }

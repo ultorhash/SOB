@@ -35,10 +35,10 @@ namespace DesktopApp
             AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
             AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
 
-            UICustomerDockPanel accountName = new UICustomerDockPanel("Nazwa konta", 30);
-            UICustomerDockPanel accountMoney = new UICustomerDockPanel("Kwota ( ZŁ )", 7);
-            UICustomerDockPanel accountOpenDate = new UICustomerDockPanel("Od dnia", new DatePicker());
-            UICustomerDockPanel accountCloseDate = new UICustomerDockPanel("Do dnia", new DatePicker());
+            AppDockPanel.InfoInputDockPanel accountName = new AppDockPanel.InfoInputDockPanel("Nazwa konta", 30);
+            AppDockPanel.InfoInputDockPanel accountMoney = new AppDockPanel.InfoInputDockPanel("Kwota ( ZŁ )", 7);
+            AppDockPanel.InputDateDockPanel accountOpenDate = new AppDockPanel.InputDateDockPanel("Od dnia");
+            AppDockPanel.InputDateDockPanel accountCloseDate = new AppDockPanel.InputDateDockPanel("Do dnia");
 
             AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnBack, btnApply);
 

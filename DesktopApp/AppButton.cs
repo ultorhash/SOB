@@ -14,6 +14,10 @@ namespace DesktopApp
     {
         public class MenuButton : Button
         {
+            /// <summary>
+            /// Klasa reprezentująca przycisk do obsługi klienta
+            /// </summary>
+            /// <param name="content">Tekst na przycisku</param>
             public MenuButton(string content)
             {
                 Cursor = Cursors.Hand;
@@ -36,11 +40,15 @@ namespace DesktopApp
 
         public class ActionButton : Button
         {
+            /// <summary>
+            /// Klasa reprezentująca przycisk, który pozwala na poruszanie się w aplikacji jak i potwierdzanie czynności
+            /// </summary>
+            /// <param name="content">Tekst na przycisku</param>
             public ActionButton(string content)
             {
                 Content = content;
                 Cursor = Cursors.Hand;
-                Background = Brushes.Gray;
+                Background = Brushes.Teal;
                 Foreground = Brushes.White;
                 Height = 40;
                 Width = 80;
@@ -53,6 +61,10 @@ namespace DesktopApp
 
         public class ThemeButton : Button
         {
+            /// <summary>
+            /// Klasa reprezentująca przycisk wyboru koloru tła aplikacji
+            /// </summary>
+            /// <param name="color">Kolor przycisku i tła</param>
             public ThemeButton(Brush color)
             {
                 Width = 30;
@@ -60,6 +72,23 @@ namespace DesktopApp
                 Margin = new Thickness(5);
                 Background = color;
                 Cursor = Cursors.Hand;
+            }
+        }
+
+        public class OperationCustomerButton : Button
+        {
+            /// <summary>
+            /// Klasa reprezentująca przycisk operacji dla klienta w menu rozwijanym
+            /// </summary>
+            /// <param name="content">Tekst na przycisku</param>
+            public OperationCustomerButton(string content)
+            {
+                Content = content;
+                Background = Brushes.DodgerBlue;
+                Width = 120;
+                FontWeight = FontWeights.Bold;
+                Padding = new Thickness(10);
+                FontSize = 10;
             }
         }
     }

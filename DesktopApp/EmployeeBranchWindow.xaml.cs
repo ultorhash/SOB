@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadEmployeeBranchWindow(loggedEmployee);
         }
 
-        public void LoadEmployeeBranchWindow(Employee loggedEmployee)
+        private void LoadEmployeeBranchWindow(Employee loggedEmployee)
         {
             Employee employee = null;
             Branch branch = null;

@@ -11,15 +11,18 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void LoadMenuPanel(Employee employee)
+        private void LoadMenuPanel(Employee employee)
         {
             loggedEmployee = employee;
             DeleteLoginPanel();
 
+            string day = DateTime.Now.ToString("dddd");
+            string month = DateTime.Now.ToString("MMMM");
+
             AppLabel.DescriptionLabel lblCustomer = new AppLabel.DescriptionLabel("Strefa klienta");
-            AppLabel.DescriptionLabel lblSessionTime = new AppLabel.DescriptionLabel(null);
+            AppLabel.DescriptionLabel lblTime = new AppLabel.DescriptionLabel("Data: " + DateTime.Now.Day + " " + month + " " + day);
             AppLabel.DescriptionLabel lblLogged = new AppLabel.DescriptionLabel($"Zalogowany: {employee.FirstName} {employee.LastName}");
-            AppLabel.DescriptionLabel lblTime = new AppLabel.DescriptionLabel(null);
+            AppLabel.DescriptionLabel lblSessionTime = new AppLabel.DescriptionLabel(null);
             AppLabel.DescriptionLabel lblEmployee = new AppLabel.DescriptionLabel("Strefa pracownika");
 
             AppButton.MenuButton btnCustomerService = new AppButton.MenuButton("Obsługa klienta");
@@ -30,6 +33,8 @@ namespace DesktopApp
             AppButton.MenuButton btnEmployeeSettings = new AppButton.MenuButton("Ustawienia");
 
             AppButton.ActionButton btnLogout = new AppButton.ActionButton("Wyloguj");
+
+            SetSessionTimer();
 
             mainWindow.Children.Add(lblCustomer);
             mainWindow.Children.Add(lblSessionTime);
@@ -45,9 +50,9 @@ namespace DesktopApp
             mainWindow.Children.Add(btnLogout);
 
             Grid.SetColumn(lblCustomer, 0); Grid.SetRow(lblCustomer, 0);
-            Grid.SetColumn(lblSessionTime, 1); Grid.SetRow(lblCustomer, 0);
+            Grid.SetColumn(lblTime, 1); Grid.SetRow(lblTime, 0);
             Grid.SetColumn(lblLogged, 2); Grid.SetRow(lblLogged, 0);
-            Grid.SetColumn(lblTime, 3); Grid.SetRow(lblTime, 0);
+            Grid.SetColumn(lblSessionTime, 3); Grid.SetRow(lblCustomer, 0);
             Grid.SetColumn(lblEmployee, 4); Grid.SetRow(lblEmployee, 0);
             Grid.SetColumn(btnCustomerService, 0); Grid.SetRow(btnCustomerService, 1);
             Grid.SetColumn(btnCustomerAdd, 0); Grid.SetRow(btnCustomerAdd, 2);
@@ -81,6 +86,26 @@ namespace DesktopApp
             {
                 EmployeeSettingsWindow employeeSettingsWindow = new EmployeeSettingsWindow();
                 employeeSettingsWindow.Show();
+            }
+
+            void SetSessionTimer()
+            {
+                DispatcherTimer clock = new DispatcherTimer();
+
+                clock.Interval = new TimeSpan(0, 0, 1);
+                clock.Tick += TimerTick;
+                clock.Start();
+            }
+
+            void TimerTick(object sender, EventArgs e)
+            {
+                var child = lblSessionTime.Content = new TextBlock()
+                {
+                    Text = "Godzina: " + DateTime.Now.ToLongTimeString().ToString(),
+                    FontSize = 15,
+                    FontWeight = FontWeights.Bold,
+                    TextWrapping = TextWrapping.Wrap,
+                };
             }
         }
     }

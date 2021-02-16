@@ -11,10 +11,10 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void DeleteCustomerPanel(object sender, EventArgs e)
+        private void DeleteCustomerPanel(object sender, EventArgs e)
         {
-            PeselTextBox[] numberInput = new PeselTextBox[11];
-            for (int i = 0; i < numberInput.Length; i++) numberInput[i] = new PeselTextBox();
+            AppOtherControls.PeselTextBox[] numberInput = new AppOtherControls.PeselTextBox[11];
+            for (int i = 0; i < numberInput.Length; i++) numberInput[i] = new AppOtherControls.PeselTextBox();
 
             StackPanel sp = new StackPanel
             {
@@ -92,6 +92,24 @@ namespace DesktopApp
                 {
                     try
                     {
+                        var accounts = context.Account.Where(x => x.CustomerID == customerNumber).ToList();
+                        if (accounts.Count != 0)
+                        {
+                            foreach (var item in accounts)
+                            {
+                                context.Account.Remove(item);
+                            }
+                        }
+
+                        var loans = context.Loan.Where(x => x.CustomerID == customerNumber).ToList();
+                        if (accounts.Count != 0)
+                        {
+                            foreach (var item in loans)
+                            {
+                                context.Loan.Remove(item);
+                            }
+                        }
+
                         context.Customer.Remove(context.Customer.Single(x => x.ID == customerNumber));
                         context.SaveChanges();
                     }

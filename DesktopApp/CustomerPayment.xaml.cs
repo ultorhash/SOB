@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadCustomerPaymentWindow(customer);
         }
 
-        public void LoadCustomerPaymentWindow(Customer customer)
+        private void LoadCustomerPaymentWindow(Customer customer)
         {
             StackPanel sp = new StackPanel
             {
@@ -38,20 +38,19 @@ namespace DesktopApp
                 accounts = context.Account.Where(x => x.CustomerID == customer.ID).ToList();
             }
 
-            UICustomerDockPanel description = new UICustomerDockPanel(
+            AppDockPanel.MultiLabelDockPanel description = new AppDockPanel.MultiLabelDockPanel(
                 new string[6] { "Akcja", "Wpłata", "Wypłata", "Nazwa konta", "Aktualny stan", "Kwota ( ZŁ )" });
 
             AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
             AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
-
             AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 10, 0, 0 }, btnBack, btnApply);
 
             sp.Children.Add(description);
 
-            List<UICustomerDockPanel> dockPanelsAccounts = new List<UICustomerDockPanel>();
+            List<AppDockPanel.AccountInfoDockPanel> dockPanelsAccounts = new List<AppDockPanel.AccountInfoDockPanel>();
             foreach (var item in accounts)
             {
-                var x = new UICustomerDockPanel(item.AccountName, item.Balance);
+                var x = new AppDockPanel.AccountInfoDockPanel(item.AccountName, item.Balance);
                 dockPanelsAccounts.Add(x);
                 sp.Children.Add(x);
             }
@@ -66,7 +65,7 @@ namespace DesktopApp
             void DeleteWindow(object o, EventArgs ev) => Close();
         }
 
-        public void ApplyTransaction(List<UICustomerDockPanel> accounts)
+        private void ApplyTransaction(List<AppDockPanel.AccountInfoDockPanel> accounts)
         {
             decimal money = 0;
 
@@ -124,7 +123,7 @@ namespace DesktopApp
             Close();
         }
 
-        public void ShowInfoMessage(string msg, MessageBoxImage icon = MessageBoxImage.Error)
+        private void ShowInfoMessage(string msg, MessageBoxImage icon = MessageBoxImage.Error)
         {
             MessageBox.Show(msg, "Informacja", MessageBoxButton.OK, icon);
         }

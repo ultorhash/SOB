@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadCustomerLoansWindow(customer);
         }
 
-        public void LoadCustomerLoansWindow(Customer customer)
+        private void LoadCustomerLoansWindow(Customer customer)
         {
             StackPanel sp = new StackPanel
             {
@@ -38,15 +38,15 @@ namespace DesktopApp
                 loans = context.Loan.Where(x => x.CustomerID == customer.ID).ToList();
             }
 
-            UICustomerDockPanel description = new UICustomerDockPanel(
+            AppDockPanel.MultiLabelDockPanel description = new AppDockPanel.MultiLabelDockPanel(
                 new string[6] { "Kwota ( ZŁ )", "Procent", "Pożyczono", "Spłata do", "Do spłaty ( ZŁ )", "Pozostało dni" });
             
             sp.Children.Add(description);
 
-            List<UICustomerDockPanel> dockPanelsAccounts = new List<UICustomerDockPanel>();
+            List<AppDockPanel.LoanInfoDockPanel> dockPanelsAccounts = new List<AppDockPanel.LoanInfoDockPanel>();
             foreach (var item in loans)
             {
-                var x = new UICustomerDockPanel(item.Balance, item.PercentValue, item.StartDate, item.EndDate);
+                var x = new AppDockPanel.LoanInfoDockPanel(item.Balance, item.PercentValue, item.StartDate, item.EndDate);
                 dockPanelsAccounts.Add(x);
                 sp.Children.Add(x);
             }

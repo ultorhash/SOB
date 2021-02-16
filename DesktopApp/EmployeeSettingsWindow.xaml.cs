@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadEmployeeSettingsWindow();
         }
 
-        public void LoadEmployeeSettingsWindow()
+        private void LoadEmployeeSettingsWindow()
         {
             StackPanel sp = new StackPanel
             {
@@ -37,7 +37,7 @@ namespace DesktopApp
             AppButton.ThemeButton btnTheme1 = new AppButton.ThemeButton(Brushes.Black);
             AppButton.ThemeButton btnTheme2 = new AppButton.ThemeButton(Brushes.DarkGray);
             AppButton.ThemeButton btnTheme3 = new AppButton.ThemeButton(Brushes.DimGray);
-            AppButton.ThemeButton btnTheme4 = new AppButton.ThemeButton(Brushes.SteelBlue);
+            AppButton.ThemeButton btnTheme4 = new AppButton.ThemeButton(Brushes.SlateGray);
             AppButton.ThemeButton btnTheme5 = new AppButton.ThemeButton(Brushes.DarkSlateGray);
 
             btnTheme1.Click += ChangeTheme;

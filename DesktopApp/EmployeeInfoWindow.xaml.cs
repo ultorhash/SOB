@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadEmployeeInfoWindow(loggedEmployee);
         }
 
-        public void LoadEmployeeInfoWindow(Employee loggedEmployee)
+        private void LoadEmployeeInfoWindow(Employee loggedEmployee)
         {
             Employee employee = null;
 

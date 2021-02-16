@@ -11,7 +11,7 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void EmployeeLoginPanel()
+        private void EmployeeLoginPanel()
         {
             StackPanel spLoginBox = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
             StackPanel spInfoBox = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
@@ -40,7 +40,6 @@ namespace DesktopApp
             {
                 Content = "",
                 FontWeight = FontWeights.Bold,
-                Background = Brushes.SteelBlue,
                 Foreground = Brushes.White,
                 HorizontalContentAlignment = HorizontalAlignment.Center,
                 VerticalContentAlignment = VerticalAlignment.Center,
@@ -48,7 +47,7 @@ namespace DesktopApp
 
             PasswordBox pbLogin = new PasswordBox
             {
-                Password = "3#frTK4!45oRR9",
+                Password = "",
                 PasswordChar = '*',
                 FontSize = 18,
                 HorizontalContentAlignment = HorizontalAlignment.Center,
@@ -82,8 +81,8 @@ namespace DesktopApp
             btnLogin.Click += LoginApp;
         }
 
-        public void ExitApp(object sender, EventArgs e) => Close();
-        public async void LoginApp(object sender, EventArgs e)
+        private void ExitApp(object sender, EventArgs e) => Close();
+        private async void LoginApp(object sender, EventArgs e)
         {
             StackPanel sp = (StackPanel)mainWindow.Children[2];
             PasswordBox pb = (PasswordBox)sp.Children[1];
@@ -99,7 +98,7 @@ namespace DesktopApp
             }
         }
 
-        public async Task<Employee> FindEmployee(string password, Label label)
+        private async Task<Employee> FindEmployee(string password, Label label)
         {
             List<Employee> employees = new List<Employee>();
             Employee employee = null;
@@ -113,7 +112,7 @@ namespace DesktopApp
             }
         }
 
-        public void DeleteLoginPanel()
+        private void DeleteLoginPanel()
         {
             for (int i = mainWindow.Children.Count - 1; i >= 0; i--) mainWindow.Children.RemoveAt(i);
         }

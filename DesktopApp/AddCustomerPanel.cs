@@ -11,7 +11,7 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void AddCustomerPanel(object sender, EventArgs e)
+        private void AddCustomerPanel(object sender, EventArgs e)
         {
             StackPanel sp = new StackPanel
             {
@@ -23,13 +23,13 @@ namespace DesktopApp
             AppButton.ActionButton btnCancel = new AppButton.ActionButton("Anuluj");
             AppButton.ActionButton btnConfirm = new AppButton.ActionButton("Zatwierdź");
 
-            UICustomerDockPanel dpCustomerID = new UICustomerDockPanel("Numer PESEL", 11);
-            UICustomerDockPanel dpCustomerFN = new UICustomerDockPanel("Imię", 30);
-            UICustomerDockPanel dpCustomerLN = new UICustomerDockPanel("Nazwisko", 30);
-            UICustomerDockPanel dpCustomerBD = new UICustomerDockPanel("Data urodzenia", new DatePicker());
-            UICustomerDockPanel dpCustomerGender = new UICustomerDockPanel("Płeć ( M / K )", 1);
-            UICustomerDockPanel dpCustomerAdress = new UICustomerDockPanel("Ulica", 50);
-            UICustomerDockPanel dpCustomerCity = new UICustomerDockPanel("Miasto", 30);
+            AppDockPanel.InfoInputDockPanel dpCustomerID = new AppDockPanel.InfoInputDockPanel("Numer PESEL", 11);
+            AppDockPanel.InfoInputDockPanel dpCustomerFN = new AppDockPanel.InfoInputDockPanel("Imię", 30);
+            AppDockPanel.InfoInputDockPanel dpCustomerLN = new AppDockPanel.InfoInputDockPanel("Nazwisko", 30);
+            AppDockPanel.InputDateDockPanel dpCustomerBD = new AppDockPanel.InputDateDockPanel("Data urodzenia");
+            AppDockPanel.InfoInputDockPanel dpCustomerGender = new AppDockPanel.InfoInputDockPanel("Płeć ( M / K )", 1);
+            AppDockPanel.InfoInputDockPanel dpCustomerAdress = new AppDockPanel.InfoInputDockPanel("Ulica", 50);
+            AppDockPanel.InfoInputDockPanel dpCustomerCity = new AppDockPanel.InfoInputDockPanel("Miasto", 30);
             AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 15, 0, 0 }, btnCancel, btnConfirm);
 
             btnCancel.Click += DeletePanel;
@@ -67,7 +67,7 @@ namespace DesktopApp
             }
         }
 
-        public void AddCustomer(DatePicker bd, params TextBox[] tbxs)
+        private void AddCustomer(DatePicker bd, params TextBox[] tbxs)
         {
             bool isFieldEmpty = false;
 
@@ -118,7 +118,7 @@ namespace DesktopApp
             }
         }
 
-        public void ShowError()
+        private void ShowError()
         {
             MessageBox.Show
             (

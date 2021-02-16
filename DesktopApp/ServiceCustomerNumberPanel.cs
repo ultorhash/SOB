@@ -11,14 +11,14 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void ServiceCustomerNumberPanel(object sender, EventArgs e)
+        private void ServiceCustomerNumberPanel(object sender, EventArgs e)
         {
             Customer customer = null;
-            PeselTextBox[] numberInput = new PeselTextBox[11];
+            AppOtherControls.PeselTextBox[] numberInput = new AppOtherControls.PeselTextBox[11];
 
             for (int i = 0; i < numberInput.Length; i++)
             {
-                numberInput[i] = new PeselTextBox();
+                numberInput[i] = new AppOtherControls.PeselTextBox();
             }
 
             StackPanel sp = new StackPanel
@@ -84,7 +84,7 @@ namespace DesktopApp
                 {
                     try
                     {
-                        customer = context.Customer.Single(x => x.ID == "66061607422"); // customerNumber
+                        customer = context.Customer.Single(x => x.ID == customerNumber);
                     }
                     catch (InvalidOperationException)
                     {

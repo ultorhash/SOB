@@ -77,6 +77,7 @@
     <Compile Include="AppButton.cs" />
     <Compile Include="AppDockPanel.cs" />
     <Compile Include="AppLabel.cs" />
+    <Compile Include="AppOtherControls.cs" />
     <Compile Include="Branch.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -103,7 +104,6 @@
       <DependentUpon>CustomerRepaymentLoan.xaml</DependentUpon>
     </Compile>
     <Compile Include="DeleteCustomerPanel.cs" />
-    <Compile Include="DropDownButton.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -116,7 +116,6 @@
     <Compile Include="EmployeeSettingsWindow.xaml.cs">
       <DependentUpon>EmployeeSettingsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IDeleteContent.cs" />
     <Compile Include="Loan.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
@@ -141,9 +140,7 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SOBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UICustomerDockPanel.cs" />
     <Compile Include="EmployeeLoginPanel.cs" />
-    <Compile Include="PeselTextBox.cs" />
     <Page Include="CustomerDeleteAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

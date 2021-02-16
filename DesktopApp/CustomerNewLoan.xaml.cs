@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadNewLoanWindow(customer);
         }
 
-        public void LoadNewLoanWindow(Customer customer)
+        private void LoadNewLoanWindow(Customer customer)
         {
             StackPanel sp = new StackPanel
             {
@@ -35,10 +35,10 @@ namespace DesktopApp
             AppButton.ActionButton btnBack = new AppButton.ActionButton("Powrót");
             AppButton.ActionButton btnApply = new AppButton.ActionButton("Zatwierdź");
 
-            UICustomerDockPanel loanBalance = new UICustomerDockPanel("Kwota ( ZŁ )", new Slider { Maximum = 50_000, Minimum = 3000 });
-            UICustomerDockPanel loanPercent = new UICustomerDockPanel("Procent", new Slider { Maximum = 100, Minimum = 0 });
-            UICustomerDockPanel loanStartDate = new UICustomerDockPanel("Od dnia", new DatePicker());
-            UICustomerDockPanel loanEndDate = new UICustomerDockPanel("Do dnia", new DatePicker());
+            AppDockPanel.SliderDockPanel loanBalance = new AppDockPanel.SliderDockPanel("Kwota ( ZŁ )", new Slider { Maximum = 50_000, Minimum = 3000 });
+            AppDockPanel.SliderDockPanel loanPercent = new AppDockPanel.SliderDockPanel("Procent", new Slider { Maximum = 100, Minimum = 0 });
+            AppDockPanel.InputDateDockPanel loanStartDate = new AppDockPanel.InputDateDockPanel("Od dnia");
+            AppDockPanel.InputDateDockPanel loanEndDate = new AppDockPanel.InputDateDockPanel("Do dnia");
 
             AppDockPanel.ButtonsDockPanel buttons = new AppDockPanel.ButtonsDockPanel(new int[4] { 0, 10, 0, 0 }, btnBack, btnApply);
 
@@ -62,7 +62,7 @@ namespace DesktopApp
             void DeleteWindow(object o, EventArgs ev) => Close();
         }
 
-        public void AddNewLoan(Slider balance, Slider percent, DatePicker startDate, DatePicker endDate, Customer customer)
+        private void AddNewLoan(Slider balance, Slider percent, DatePicker startDate, DatePicker endDate, Customer customer)
         {
             bool isValidDate = true;
             DateTime date1 = default;
@@ -103,7 +103,7 @@ namespace DesktopApp
             }
         }
 
-        public void ShowMessage(string msg, MessageBoxImage img)
+        private void ShowMessage(string msg, MessageBoxImage img)
         {
             MessageBox.Show(msg, "Informacja", MessageBoxButton.OK, img);
         }

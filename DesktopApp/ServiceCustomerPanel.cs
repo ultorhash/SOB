@@ -11,7 +11,7 @@ namespace DesktopApp
 {
     public partial class MainWindow
     {
-        public void ServiceCustomerPanel(Customer customer, Employee loggedEmployee)
+        private void ServiceCustomerPanel(Customer customer, Employee loggedEmployee)
         {
             StackPanel sp = new StackPanel
             {
@@ -39,12 +39,12 @@ namespace DesktopApp
                 FontWeight = FontWeights.Bold,
             };
 
-            DropDownButton btnCreateAccount = new DropDownButton("Zakładanie konta");
-            DropDownButton btnPayment = new DropDownButton("Wpłata / wypłata");
-            DropDownButton btnDeleteAccount = new DropDownButton("Usuń konto");
-            DropDownButton btnNewLoan = new DropDownButton("Nowa pożyczka");
-            DropDownButton btnActualLoan = new DropDownButton("Aktualne pożyczki");
-            DropDownButton btnRepaymentLoan = new DropDownButton("Spłać pożyczkę");
+            AppButton.OperationCustomerButton btnCreateAccount = new AppButton.OperationCustomerButton("Zakładanie konta");
+            AppButton.OperationCustomerButton btnPayment = new AppButton.OperationCustomerButton("Wpłata / wypłata");
+            AppButton.OperationCustomerButton btnDeleteAccount = new AppButton.OperationCustomerButton("Usuń konto");
+            AppButton.OperationCustomerButton btnNewLoan = new AppButton.OperationCustomerButton("Nowa pożyczka");
+            AppButton.OperationCustomerButton btnActualLoan = new AppButton.OperationCustomerButton("Aktualne pożyczki");
+            AppButton.OperationCustomerButton btnRepaymentLoan = new AppButton.OperationCustomerButton("Spłać pożyczkę");
 
             AppDockPanel.ButtonsDockPanel customerAccount = new AppDockPanel.ButtonsDockPanel(
                 null, btnCreateAccount, btnPayment, btnDeleteAccount);

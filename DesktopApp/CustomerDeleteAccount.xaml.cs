@@ -25,7 +25,7 @@ namespace DesktopApp
             LoadDeleteAccountWindow(customer);
         }
 
-        public void LoadDeleteAccountWindow(Customer customer)
+        private void LoadDeleteAccountWindow(Customer customer)
         {
             StackPanel sp = new StackPanel
             {
@@ -38,10 +38,10 @@ namespace DesktopApp
                 accounts = context.Account.Where(x => x.CustomerID == customer.ID).ToList();
             }
 
-            List<UICustomerDockPanel> dockPanelsAccounts = new List<UICustomerDockPanel>();
+            List<AppDockPanel.ActionDockPanel> dockPanelsAccounts = new List<AppDockPanel.ActionDockPanel>();
             foreach (var item in accounts)
             {
-                var x = new UICustomerDockPanel(item.AccountName, true);
+                var x = new AppDockPanel.ActionDockPanel(item.AccountName, true);
                 dockPanelsAccounts.Add(x);
                 sp.Children.Add(x);
             }
@@ -61,7 +61,7 @@ namespace DesktopApp
             void DeleteWindow(object o, EventArgs ev) => Close();
         }
 
-        public void DeleteAccount(List<UICustomerDockPanel> accounts)
+        private void DeleteAccount(List<AppDockPanel.ActionDockPanel> accounts)
         {
             bool isDeleted = false;
 
@@ -92,7 +92,7 @@ namespace DesktopApp
             else Close();
         }
 
-        public void ShowInfoMessage(string msg, MessageBoxImage icon = MessageBoxImage.Error)
+        private void ShowInfoMessage(string msg, MessageBoxImage icon = MessageBoxImage.Error)
         {
             MessageBox.Show(msg, "Informacja", MessageBoxButton.OK, icon);
         }

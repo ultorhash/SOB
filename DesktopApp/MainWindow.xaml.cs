@@ -28,7 +28,7 @@ namespace DesktopApp
             EmployeeLoginPanel();
         }
 
-        public void Logout(object sender, EventArgs e)
+        private void Logout(object sender, EventArgs e)
         {
             MessageBoxResult confirm = MessageBox.Show
             (
@@ -46,7 +46,7 @@ namespace DesktopApp
             }
         }
 
-        public void DeleteMenuPanel()
+        private void DeleteMenuPanel()
         {
             for (int i = mainWindow.Children.Count - 1; i >= 0; i--) mainWindow.Children.RemoveAt(i);
         }
